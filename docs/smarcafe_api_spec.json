@@ -1,0 +1,1819 @@
+{
+	"info": {
+		"_postman_id": "f4ec7c41-8b2c-4fab-8ab9-5b57c08b7917",
+		"name": "V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23824709"
+	},
+	"item": [
+		{
+			"name": "Menus",
+			"item": [
+				{
+					"name": "Get All Menus",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus"
+							]
+						},
+						"description": "Retrieve a list of all available menus"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/v1/menus",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"v1",
+										"menus"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success Retrieve a list of all available menus\",\r\n    \"data\" : [\r\n        {\r\n            \"id\": {{id}},\r\n            \"category_id\": 2,\r\n            \"item_name\": \"Americano\",\r\n            \"item_price\": 10000,\r\n            \"item_description\": \"Kopi pahit kesukaan mas fathir\",\r\n            \"item_image_url\": \"https://img.freepik.com/free-photo/glass-with-iced-coffee-table_23-2148937324.jpg?w=740&t=st=1697782213~exp=1697782813~hmac=f2cec4649f99ab549f89b5df0bf3c14c2204c09c2fd701885b83fc6d551f3a5c\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"category_id\": 1,\r\n            \"item_name\": \"Caffe Latte\",\r\n            \"item_price\": 10000,\r\n            \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n            \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n        }\r\n    ]\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/menus",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot retrieve a list of all available menus\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a New Menu Item",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Americano\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus"
+							]
+						},
+						"description": "Add a new menu item to the system"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Americano\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Menu item created successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 2,\r\n        \"item_name\": \"Americano\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Americano\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot create menu item\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"item_name\": \"\",\r\n    \"item_price\": -10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\" : [\n                \"Category ID is required\",\n                \"Item name cannot be empty\",\n                \"Item price must be a positive number\"\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Menu by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus",
+								"{{id}}"
+							]
+						},
+						"description": "Retrieve information about a specific menu item"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success retrieve information about a specific menu item\",\r\n    \"data\" : {\r\n        \"id\": {{id}},\r\n        \"category_id\": 2,\r\n        \"item_name\": \"Americano\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi pahit kesukaan mas fathir\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/glass-with-iced-coffee-table_23-2148937324.jpg?w=740&t=st=1697782213~exp=1697782813~hmac=f2cec4649f99ab549f89b5df0bf3c14c2204c09c2fd701885b83fc6d551f3a5c\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve information about a specific menu item\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Upload a Menu Item Image",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image_url",
+									"type": "file",
+									"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus",
+								"{{id}}"
+							]
+						},
+						"description": "Upload Image to existing menu item"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Menu item image upload successfully\"\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 1,\r\n        \"item_name\": \"Caffe Latte\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot upload menu item image\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\": \"image url form cannot be empty\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "image_url",
+											"type": "file",
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Menu by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus",
+								"{{id}}"
+							]
+						},
+						"description": "Delete a specific menu item"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 204,\r\n    \"message\": \"Menu item deleted successfully\"\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot delete menu item\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested manu item does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Menu by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"menus",
+								"{{id}}"
+							]
+						},
+						"description": "Update information for a specific menu item"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Menu item updated successfully\",\r\n    \"errors\": null,\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 1,\r\n        \"item_name\": \"Caffe Latte\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot update menu item\",\n    \"errors\": \"Internal Server Error\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}"
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"item_name\": \"\",\r\n    \"item_price\": -10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/menus/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        \"Category ID is required\",\n        \"Item name cannot be empty\",\n        \"Item price must be a positive number\"\n    ],\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Get All Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"categories"
+							]
+						},
+						"description": "Retrieve a list of all available category"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success Retrieve a list of all available category\",\r\n    \"data\" : [\r\n        {\r\n            \"id\": {{id}},\r\n            \"category_name\": \"Coffee\",\r\n            \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"category_name\": \"Espresso\",\r\n            \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n        }\r\n    ]\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve a list of all available category\",\n    \"errors\": \"Internal Server Error\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create a New Category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"categories"
+							]
+						},
+						"description": "Add a new category to the system"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Category created successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Coffee\",\r\n        \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal  Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot create category\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_description\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n            \"Category name is required\",\r\n            \"Category description cannot be empty\"\r\n    ]\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Category by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"categories",
+								"{{id}}"
+							]
+						},
+						"description": "Retrieve information about a specific category"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success retrieve information about a specific category\",\r\n    \"data\" : {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Coffee\",\r\n        \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve information about a specific category\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Category not found\",\n    \"errors\": \"The requested category does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Menu by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"categories",
+								"{{id}}"
+							]
+						},
+						"description": "Delete a specific category"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 204,\n    \"message\": \"Category deleted successfully\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot delete category\",\r\n    \"errors\": \"Internal Server Error\"\r\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Category not found\",\n    \"errors\": \"The requested category does not exist\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Category by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"categories",
+								"{{id}}"
+							]
+						},
+						"description": "Update information for a specific category"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Espresso\",\r\n    \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Category updated successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Espresso\",\r\n        \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot update category\",\n    \"errors\": \"Internal Server Error\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Category not found\",\r\n    \"errors\": \"The requested category does not exist\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"api",
+										"{{api_ver}}",
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n            \"Category name is required\",\r\n            \"Category description cannot be empty\"\r\n    ]\r\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "localhost",
+			"type": "string"
+		},
+		{
+			"key": "port",
+			"value": "8080",
+			"type": "string"
+		},
+		{
+			"key": "api_ver",
+			"value": "v1",
+			"type": "string"
+		},
+		{
+			"key": "id",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
