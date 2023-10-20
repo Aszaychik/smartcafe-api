@@ -2103,20 +2103,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/api/v1/customers?customer_name=aszaychik",
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers?customer_name={{customer_name}}",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
 										"api",
-										"v1",
+										"{{api_ver}}",
 										"customers"
 									],
 									"query": [
 										{
 											"key": "customer_name",
-											"value": "aszaychik"
+											"value": "{{customer_name}}"
 										}
 									]
 								}
@@ -2142,20 +2142,20 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/api/v1/customers?customer_name=aszaychik",
+									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers?customer_name={{customer_name}}",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
 										"api",
-										"v1",
+										"{{api_ver}}",
 										"customers"
 									],
 									"query": [
 										{
 											"key": "customer_name",
-											"value": "aszaychik"
+											"value": "{{customer_name}}"
 										}
 									]
 								}
@@ -2174,6 +2174,489 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"code\": 404,\n    \"message\": \"Customer not found\",\n    \"errors\": \"The requested customer name does not exist\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-api-key",
+								"value": "{{x-api-key}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Auth Registration"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "kayokoonikata",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Register successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"username\": {{username}}\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "kayokoonikata",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot register\",\n    \"errors\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "kayokoonikata",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n                \"Username is required\",\r\n                \"Password cannot be empty\"\r\n    ]\r\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 401,\r\n    \"message\": \"Unauthorized cannot register\",\r\n    \"errors\": \"Header x-api-key cannot be empty\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"{{api_ver}}",
+								"auth",
+								"login"
+							]
+						},
+						"description": "Auth Login"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Login Successful\",\r\n    \"data\": {\r\n        \"token\": {{token}},\r\n        \"username\": {{username}}\r\n    }\r\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot login\",\r\n    \"errors\": \"Internal Server Error\"\r\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n                \"Username is required\",\r\n                \"Password cannot be empty\"\r\n    ]\r\n}"
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"random shit\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/auth/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Invalid username or password\"\r\n}"
 						}
 					]
 				}
