@@ -700,16 +700,16 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"raw": "localhost:8080/api/v1/menus/1",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"menus",
-										"{{id}}"
+										"1"
 									]
 								}
 							},
@@ -871,16 +871,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"raw": "localhost:8080/api/v1/menus/1",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"menus",
-										"{{id}}"
+										"1"
 									]
 								}
 							},
@@ -1076,14 +1076,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"raw": "localhost:8080/api/v1/categories",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"categories"
 									]
 								}
@@ -1190,14 +1190,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"raw": "localhost:8080/api/v1/categories",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"categories"
 									]
 								}
@@ -1344,16 +1344,16 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "localhost:8080/api/v1/categories/1",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"categories",
-										"{{id}}"
+										"1"
 									]
 								}
 							},
@@ -1469,16 +1469,16 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "localhost:8080/api/v1/categories/1",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"categories",
-										"{{id}}"
+										"1"
 									]
 								}
 							},
@@ -1612,16 +1612,16 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "localhost:8080/api/v1/categories/1",
 									"host": [
-										"{{base_url}}"
+										"localhost"
 									],
-									"port": "{{port}}",
+									"port": "8080",
 									"path": [
 										"api",
-										"{{api_ver}}",
+										"v1",
 										"categories",
-										"{{id}}"
+										"1"
 									]
 								}
 							},
@@ -1792,28 +1792,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "base_url",
-			"value": "localhost",
-			"type": "string"
-		},
-		{
-			"key": "port",
-			"value": "8080",
-			"type": "string"
-		},
-		{
-			"key": "api_ver",
-			"value": "v1",
-			"type": "string"
-		},
-		{
-			"key": "id",
-			"value": "1",
-			"type": "string"
 		}
 	]
 }
