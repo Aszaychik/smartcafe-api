@@ -25,3 +25,23 @@ func AdminUpdateRequestToAdminDomain(request web.AdminUpdateRequest) *domain.Adm
 		Password: request.Password,
 	}
 }
+
+func MenuCreateRequestToMenuDomain(request web.MenuCreateRequest) *domain.Menu {
+	return &domain.Menu{
+		ItemName: request.ItemName,
+		ItemPrice: request.ItemPrice,
+		ItemDescription: request.ItemDescription,
+		ItemImage: request.ItemImage,
+		CategoryID: uint(request.CategoryId),
+	}
+}
+
+func MenuUpdateRequestToMenuDomain(request web.MenuUpdateRequest) *domain.Menu {
+	return &domain.Menu{
+		ItemName: request.ItemName,
+		ItemPrice: request.ItemPrice,
+		ItemDescription: request.ItemDescription,
+		ItemImage: request.ItemImage,
+		CategoryID: uint(request.CategoryId),
+	}
+}
