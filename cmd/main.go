@@ -2,30 +2,76 @@ package main
 
 import (
 	"aszaychik/smartcafe-api/domain"
+	"aszaychik/smartcafe-api/internal/app/admin"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
-	"fmt"
+	"context"
+	"net/http"
+	"os"
+	"os/signal"
+	"syscall"
 
+	"github.com/go-playground/validator"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/sirupsen/logrus"
 )
 
 func main() {
+	// Load configuration
 	cfg, err := config.LoadConfig()
 	if err != nil {
-		logrus.Fatal(err.Error())
+		logrus.Fatal("Error loading config:", err.Error())
 	}
-	
-	fmt.Println(cfg)
 
+	// Initialize database connection
 	db, err := database.NewMySQLConnection(&cfg.MySQL)
 	if err != nil {
-			logrus.Fatal("Error connecting to MySQL:", err.Error())
+		logrus.Fatal("Error connecting to MySQL:", err.Error())
 	}
 
+	// Auto-migrate database models
 	db.AutoMigrate(&domain.Admin{}, &domain.Menu{})
 
+	// Create a validator instance
+	validate := validator.New()
+
+	// Create an Echo instance
 	e := echo.New()
 
-	e.Logger.Fatal(e.Start(":8080"))
+	// Set up routes and handlers
+	adminRepository := admin.NewAdminRepository(db)
+	adminService := admin.NewAdminService(adminRepository, validate)
+	adminHandler := admin.NewAdminHandler(adminService)
+	adminRoutes := admin.NewAdminRoutes(e, adminHandler)
+
+	adminRoutes.SetupAdminRoutes()
+
+	// Middleware and server configuration
+	e.Pre(middleware.RemoveTrailingSlash())
+	e.Use(middleware.CORS())
+	e.Use(middleware.LoggerWithConfig(
+		middleware.LoggerConfig{
+			Format: "method=${method}, uri=${uri}, status=${status}, time=${time_rfc3339}\n",
+		},
+	))
+
+	// Start the Echo server in a goroutine
+	go func() {
+		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
+			logrus.Fatalf("Error starting server: %v", err)
+		}
+	}()
+
+	// Wait for interrupt signal to gracefully shutdown the server
+	quit := make(chan os.Signal, 1)
+	signal.Notify(quit, syscall.SIGINT, syscall.SIGTERM)
+	<-quit
+
+	// Shutdown Echo gracefully
+	if err := e.Shutdown(context.Background()); err != nil {
+		logrus.Fatal("Error shutting down server:", err)
+	}
+
+	logrus.Info("Server shut down gracefully")
 }
