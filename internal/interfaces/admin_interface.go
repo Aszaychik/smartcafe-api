@@ -21,7 +21,7 @@ type AdminService interface {
 	LoginAdmin(ctx echo.Context, request web.AdminLoginRequest) (*domain.Admin, error)
 	UpdateAdmin(ctx echo.Context, request web.AdminUpdateRequest, id int) (*domain.Admin, error)
 	FindById(ctx echo.Context, id int) (*domain.Admin, error)
-	FindAll(ctx echo.Context) ([]*domain.Admin, error)
+	FindAll(ctx echo.Context) ([]domain.Admin, error)
 	DeleteAdmin(ctx echo.Context, id int) error
 }
 

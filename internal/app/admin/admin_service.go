@@ -18,10 +18,10 @@ type AdminServiceImpl struct {
 	Validate       *validator.Validate
 }
 
-func Newadminservice(adminRepository interfaces.AdminRepository, validate *validator.Validate) *AdminServiceImpl {
+func NewAdminService(adminRepository interfaces.AdminRepository, validate *validator.Validate) interfaces.AdminService {
 	return &AdminServiceImpl{
 		AdminRepository: adminRepository,
-		Validate:       validate,
+		Validate:        validate,
 	}
 }
 
@@ -120,7 +120,7 @@ func (service *AdminServiceImpl) FindAll(ctx echo.Context) ([]domain.Admin, erro
 	return admins, nil
 }
 
-func (service *AdminServiceImpl) DeleteUser(ctx echo.Context, id int) error {
+func (service *AdminServiceImpl) DeleteAdmin(ctx echo.Context, id int) error {
 	// Check if the admin exists
 	existingAdmin, _ := service.AdminRepository.FindById(id)
 	if existingAdmin == nil {
