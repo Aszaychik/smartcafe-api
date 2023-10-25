@@ -6,31 +6,26 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-type AdminRoutes struct {
+type AdminRoutesImpl struct {
 	Echo           *echo.Echo
 	AdminHandler interfaces.AdminHandler
 }
 
-func NewAdminRoutes(e *echo.Echo, adminHandler interfaces.AdminHandler) *AdminRoutes {
-	return &AdminRoutes{
+func NewAdminRoutes(e *echo.Echo, adminHandler interfaces.AdminHandler) interfaces.AdminRoutes {
+	return &AdminRoutesImpl{
 		Echo:           e,
 		AdminHandler: adminHandler,
 	}
 }
 
-func (ar *AdminRoutes) SetupAdminRoutes() {
-	ar.auth()
-	ar.admin()
-}
-
-func (ar *AdminRoutes) auth() {
+func (ar *AdminRoutesImpl) Auth() {
 	authGroup := ar.Echo.Group("auth")
 
 	authGroup.POST("/register", ar.AdminHandler.RegisterAdminHandler)
 	authGroup.POST("/login", ar.AdminHandler.LoginAdminHandler)
 }
 
-func (ar *AdminRoutes) admin() {
+func (ar *AdminRoutesImpl) Admin() {
 	adminsGroup := ar.Echo.Group("admins")
 
 	adminsGroup.GET("", ar.AdminHandler.GetAdminsHandler)
