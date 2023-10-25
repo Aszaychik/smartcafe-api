@@ -34,7 +34,7 @@ func(handler *AdminHandlerImpl) RegisterAdminHandler(ctx echo.Context) error {
 		}
 
 		if strings.Contains(err.Error(), "Username already exists") {
-			return res.StatusEmailAlreadyExist(ctx, err)
+			return res.StatusAlreadyExist(ctx, err)
 		}
 
 		return res.StatusInternalServerError(ctx, err)
