@@ -33,3 +33,8 @@ type AdminHandler interface {
 	GetAdminsHandler(ctx echo.Context) error
 	DeleteAdminHandler(ctx echo.Context) error
 }
+
+type AdminRoutes interface {
+	Auth()
+	Admin()
+}

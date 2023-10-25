@@ -29,6 +29,6 @@ func StatusBadRequest(ctx echo.Context, err error) error {
 	return errorResponse(ctx, http.StatusBadRequest, err.Error())
 }
 
-func StatusEmailAlreadyExist(ctx echo.Context, err error) error {
+func StatusAlreadyExist(ctx echo.Context, err error) error {
 	return errorResponse(ctx, http.StatusConflict, err.Error())
 }
