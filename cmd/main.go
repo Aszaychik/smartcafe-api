@@ -31,7 +31,7 @@ func main() {
 	}
 
 	// Auto-migrate database models
-	db.AutoMigrate(&domain.Admin{}, &domain.Menu{})
+	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{})
 
 	// Create a validator instance
 	validate := validator.New()
