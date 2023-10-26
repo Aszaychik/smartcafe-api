@@ -5,3 +5,8 @@ type WebResponse struct {
 	Message string `json:"message"`
 	Data    any    `json:"data"`
 }
+
+type AdminLoginResponse struct {
+	Username string `json:"username"`
+	Token    string `json:"token"`
+}
