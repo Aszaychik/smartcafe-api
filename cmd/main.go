@@ -4,6 +4,7 @@ import (
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/internal/app/admin"
 	"aszaychik/smartcafe-api/internal/app/category"
+	"aszaychik/smartcafe-api/internal/app/customer"
 	"aszaychik/smartcafe-api/internal/app/menu"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
@@ -33,7 +34,7 @@ func main() {
 	}
 
 	// Auto-migrate database models
-	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{})
+	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{}, &domain.Customer{})
 
 	// Create a validator instance
 	validate := validator.New()
@@ -60,11 +61,18 @@ func main() {
 	categoryHandler := category.NewCategoryHandler(categoryService)
 	categoryRoutes := category.NewCategoryRoutes(e, categoryHandler)
 
+	// Customer
+	customerRepository := customer.NewCustomerRepository(db)
+	customerService := customer.NewCustomerService(customerRepository, validate)
+	customerHandler := customer.NewCustomerHandler(customerService)
+	customerRoutes := customer.NewCustomerRoutes(e, customerHandler)
+
 	// Set up routes
 	adminRoutes.Auth()
 	adminRoutes.Admin()
 	menuRoutes.Menu()
 	categoryRoutes.Category()
+	customerRoutes.Customer()
 
 	// Middleware and server configuration
 	e.Pre(middleware.RemoveTrailingSlash())
