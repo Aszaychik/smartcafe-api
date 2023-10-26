@@ -16,7 +16,7 @@ func NewMenuRepository(db *gorm.DB) interfaces.MenuRepository {
 }
 
 func (repository *MenuRepositoryImpl) Save(menu *domain.Menu) (*domain.Menu, error) {
-	result := repository.DB.Create(&menu)
+	result := repository.DB.Preload("Category").Create(&menu)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -25,7 +25,7 @@ func (repository *MenuRepositoryImpl) Save(menu *domain.Menu) (*domain.Menu, err
 }
 
 func (repository *MenuRepositoryImpl) Update(menu *domain.Menu, id int) (*domain.Menu, error) {
-	result := repository.DB.Save(&menu)
+	result := repository.DB.Preload("Category").Save(&menu)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -36,7 +36,7 @@ func (repository *MenuRepositoryImpl) Update(menu *domain.Menu, id int) (*domain
 func (repository *MenuRepositoryImpl) FindById(id int) (*domain.Menu, error) {
 	menu := domain.Menu{}
 
-	result := repository.DB.First(&menu, id)
+	result := repository.DB.Preload("Category").First(&menu, id)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -58,7 +58,7 @@ func (repository *MenuRepositoryImpl) FindByName(itemName string) (*domain.Menu,
 func (repository *MenuRepositoryImpl) FindByCategoryId(categoryId int) ([]domain.Menu, error) {
 	menu := []domain.Menu{}
 
-	result := repository.DB.Where("category_id = ?", categoryId).First(&menu)
+	result := repository.DB.Preload("Category").Where("category_id = ?", categoryId).First(&menu)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -69,7 +69,7 @@ func (repository *MenuRepositoryImpl) FindByCategoryId(categoryId int) ([]domain
 func (repository *MenuRepositoryImpl) FindAll() ([]domain.Menu, error) {
 	menu := []domain.Menu{}
 
-	result := repository.DB.Find(&menu)
+	result := repository.DB.Preload("Category").Find(&menu)
 	if result.Error != nil {
 		return nil, result.Error
 	}

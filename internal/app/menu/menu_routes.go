@@ -11,10 +11,10 @@ type MenuRoutesImpl struct {
 	MenuHandler interfaces.MenuHandler
 }
 
-func NewMenuRoutes(e *echo.Echo, adminHandler interfaces.MenuHandler) interfaces.MenuRoutes {
+func NewMenuRoutes(e *echo.Echo, menuHandler interfaces.MenuHandler) interfaces.MenuRoutes {
 	return &MenuRoutesImpl{
 		Echo:        e,
-		MenuHandler: adminHandler,
+		MenuHandler: menuHandler,
 	}
 }
 
