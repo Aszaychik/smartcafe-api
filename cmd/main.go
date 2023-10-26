@@ -3,6 +3,7 @@ package main
 import (
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/internal/app/admin"
+	"aszaychik/smartcafe-api/internal/app/category"
 	"aszaychik/smartcafe-api/internal/app/menu"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
@@ -53,10 +54,17 @@ func main() {
 	menuHandler := menu.NewMenuHandler(menuService)
 	menuRoutes := menu.NewMenuRoutes(e, menuHandler)
 
+	// Category
+	categoryRepository := category.NewCategoryRepository(db)
+	categoryService := category.NewCategoryService(categoryRepository, validate)
+	categoryHandler := category.NewCategoryHandler(categoryService)
+	categoryRoutes := category.NewCategoryRoutes(e, categoryHandler)
+
 	// Set up routes
 	adminRoutes.Auth()
 	adminRoutes.Admin()
 	menuRoutes.Menu()
+	categoryRoutes.Category()
 
 	// Middleware and server configuration
 	e.Pre(middleware.RemoveTrailingSlash())
