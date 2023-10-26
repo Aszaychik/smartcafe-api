@@ -1,7 +1,6 @@
 package main
 
 import (
-	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/internal/app/admin"
 	"aszaychik/smartcafe-api/internal/app/category"
 	"aszaychik/smartcafe-api/internal/app/customer"
@@ -32,9 +31,6 @@ func main() {
 	if err != nil {
 		logrus.Fatal("Error connecting to MySQL:", err.Error())
 	}
-
-	// Auto-migrate database models
-	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{}, &domain.Customer{})
 
 	// Create a validator instance
 	validate := validator.New()

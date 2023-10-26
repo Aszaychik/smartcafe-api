@@ -2,6 +2,7 @@ package database
 
 import (
 	"aszaychik/smartcafe-api/config"
+	"aszaychik/smartcafe-api/domain"
 	"fmt"
 
 	"gorm.io/driver/mysql"
@@ -20,11 +21,11 @@ func NewMySQLConnection(cfg *config.MySQLConfig) (*gorm.DB, error) {
 		return nil, err
 	}
 
-	// migration(db)
+	migration(db)
 
 	return db, nil
 }
 
-// func migration(db *gorm.DB) {
-// 	db.AutoMigrate(&domain.Admin{})
-// }
+func migration(db *gorm.DB) {
+	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{}, &domain.Customer{})
+}
