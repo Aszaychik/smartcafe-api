@@ -59,3 +59,17 @@ func CategoryUpdateRequestToCategoryDomain(request web.CategoryUpdateRequest) *d
 		CategoryDescription: request.CategoryDescription,
 	}
 }
+
+func CustomerCreateRequestToCustomerDomain(request web.CustomerCreateRequest) *domain.Customer {
+	return &domain.Customer{
+		CustomerName: request.CustomerName,
+		CustomerEmail: request.CustomerEmail,
+	}
+}
+
+func CustomerUpdateRequestToCustomerDomain(request web.CustomerUpdateRequest) *domain.Customer {
+	return &domain.Customer{
+		CustomerName: request.CustomerName,
+		CustomerEmail: request.CustomerEmail,
+	}
+}
