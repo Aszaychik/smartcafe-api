@@ -40,3 +40,13 @@ type MenuUpdateRequest struct {
 	ItemImage       string `json:"item_image" validate:"min=1,max=255"`
 	CategoryId      int    `json:"category_id" validate:"min=1,max=255"`
 }
+
+type CustomerCreateRequest struct {
+	CustomerName  string `json:"customer_name" validate:"required,min=1,max=255"`
+	CustomerEmail string `json:"customer_email" validate:"required,email"`
+}
+
+type CustomerUpdateRequest struct {
+	CustomerName  string `json:"customer_name" validate:"min=1,max=255"`
+	CustomerEmail string `json:"customer_email" validate:"email"`
+}
