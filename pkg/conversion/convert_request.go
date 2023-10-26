@@ -45,3 +45,17 @@ func MenuUpdateRequestToMenuDomain(request web.MenuUpdateRequest) *domain.Menu {
 		CategoryID: uint(request.CategoryId),
 	}
 }
+
+func CategoryCreateRequestToCategoryDomain(request web.CategoryCreateRequest) *domain.Category {
+	return &domain.Category{
+		CategoryName: request.CategoryName,
+		CategoryDescription: request.CategoryDescription,
+	}
+}
+
+func CategoryUpdateRequestToCategoryDomain(request web.CategoryUpdateRequest) *domain.Category {
+	return &domain.Category{
+		CategoryName: request.CategoryName,
+		CategoryDescription: request.CategoryDescription,
+	}
+}
