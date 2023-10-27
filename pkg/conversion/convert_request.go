@@ -94,3 +94,13 @@ func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice 
 
 	return order
 }
+
+func OrderCreateDomainToOrderPaymentDomain(order *domain.Order, id string, paymentUrl string) *domain.Order {
+	order.OrderPayment = domain.OrderPayment{
+		ID: id,
+		PaymentUrl: paymentUrl,
+		PaymentDate: time.Now(),
+	}
+
+	return order
+}
