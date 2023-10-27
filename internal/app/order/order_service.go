@@ -5,11 +5,14 @@ import (
 	"aszaychik/smartcafe-api/domain/web"
 	"aszaychik/smartcafe-api/internal/interfaces"
 	"aszaychik/smartcafe-api/pkg/conversion"
+	"aszaychik/smartcafe-api/pkg/midtrans"
 	"aszaychik/smartcafe-api/pkg/validation"
 	"fmt"
 
 	"github.com/go-playground/validator"
+	"github.com/google/uuid"
 	"github.com/labstack/echo/v4"
+	"github.com/midtrans/midtrans-go/snap"
 )
 
 type OrderServiceImpl struct {
@@ -17,14 +20,16 @@ type OrderServiceImpl struct {
 	MenuRepository  interfaces.MenuRepository
 	CustomerRepository interfaces.CustomerRepository
 	Validate       *validator.Validate
+	SnapClient snap.Client
 }
 
-func NewOrderService(orderRepository interfaces.OrderRepository, menuRepository interfaces.MenuRepository, customerRepository interfaces.CustomerRepository, validate *validator.Validate) interfaces.OrderService {
+func NewOrderService(orderRepository interfaces.OrderRepository, menuRepository interfaces.MenuRepository, customerRepository interfaces.CustomerRepository, validate *validator.Validate, snapClient snap.Client) interfaces.OrderService {
 	return &OrderServiceImpl{
 		OrderRepository: orderRepository,
 		MenuRepository:  menuRepository,
 		CustomerRepository: customerRepository,
 		Validate: validate,
+		SnapClient: snapClient,
 	}
 }
 
@@ -51,6 +56,13 @@ func (service *OrderServiceImpl) CreateOrder(ctx echo.Context, request web.Order
 	}
 
 	order := conversion.OrderCreateRequestToOrderDomain(request, totalPrice)
+
+	snapUrl, snapOrderId, err := service.SnapRequest(order)
+	if err != nil {
+		return nil, fmt.Errorf("failed to create snap request: %w", err)
+	}
+
+	order = conversion.OrderCreateDomainToOrderPaymentDomain(order, snapOrderId, snapUrl)
 
 	// Save the order to the database
 	result, err := service.OrderRepository.Save(order)
@@ -91,4 +103,15 @@ func (service *OrderServiceImpl) FindById(ctx echo.Context, id int) (*domain.Ord
 	}
 
 	return existingOrder, nil
+}
+
+func (service *OrderServiceImpl) SnapRequest(order *domain.Order) (string, string, error) {
+	orderId := fmt.Sprintf("ORDER-%d-%d-%s", order.CustomerID, order.ID, uuid.NewString())
+	snapClient := service.SnapClient
+	snapResponse, err := midtrans.CreateSnapRequest(snapClient, orderId, int64(order.TotalPrice))
+	if err != nil {
+		return "", "", fmt.Errorf("failed to create snap request: %w", err)
+	}
+
+	return snapResponse.RedirectURL, orderId, nil
 }

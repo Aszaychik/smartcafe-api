@@ -16,6 +16,7 @@ type OrderService interface {
 	CreateOrder(ctx echo.Context, request web.OrderCreateRequest) (*domain.Order, error)
 	CalculateTotalPrice(items []domain.OrderItem) (float64, error)
 	FindById(ctx echo.Context, id int) (*domain.Order, error)
+	SnapRequest(order *domain.Order) (string, string, error)
 }
 
 type OrderHandler interface {
