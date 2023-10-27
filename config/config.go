@@ -1,7 +1,8 @@
 package config
 
 type AppConfig struct {
-	MySQL MySQLConfig
+	MySQL    MySQLConfig
+	Midtrans MidtransConfig
 }
 
 type MySQLConfig struct {
@@ -10,4 +11,8 @@ type MySQLConfig struct {
 	Host     string
 	Port     string
 	Database string
+}
+
+type MidtransConfig struct {
+	ServerKey string
 }
