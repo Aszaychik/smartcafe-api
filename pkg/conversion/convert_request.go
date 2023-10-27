@@ -3,6 +3,7 @@ package conversion
 import (
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/domain/web"
+	"time"
 )
 
 func AdminCreateRequestToAdminDomain(request web.AdminCreateRequest) *domain.Admin {
@@ -72,4 +73,24 @@ func CustomerUpdateRequestToCustomerDomain(request web.CustomerUpdateRequest) *d
 		CustomerName: request.CustomerName,
 		CustomerEmail: request.CustomerEmail,
 	}
+}
+
+func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice float64) *domain.Order {
+	order := &domain.Order{
+		CustomerID:  uint(request.CustomerId),
+		OrderDate:   time.Now(),
+		OrderStatus: domain.Pending,
+		TotalPrice:  totalPrice,
+	}
+
+	for _, itemRequest := range request.Items {
+		orderItem := &domain.OrderItem{
+			ItemID:    uint(itemRequest.ItemID),
+			Quantity:  itemRequest.Quantity,
+		}
+
+		order.Items = append(order.Items, *orderItem)
+	}
+
+	return order
 }
