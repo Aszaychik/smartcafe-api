@@ -8,7 +8,7 @@ import (
 	"github.com/midtrans/midtrans-go/snap"
 )
 
-func New(config *config.MidtransConfig) snap.Client {
+func NewMidtransSnapClient(config *config.MidtransConfig) snap.Client {
 	var snapClient snap.Client
 	snapClient.New(config.ServerKey, midtrans.Sandbox)
 
