@@ -27,5 +27,5 @@ func NewMySQLConnection(cfg *config.MySQLConfig) (*gorm.DB, error) {
 }
 
 func migration(db *gorm.DB) {
-	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{}, &domain.Customer{}, &domain.Order{}, &domain.OrderItem{})
+	db.AutoMigrate(&domain.Admin{}, &domain.Category{}, &domain.Menu{}, &domain.Customer{}, &domain.Order{}, &domain.OrderItem{}, &domain.OrderPayment{})
 }
