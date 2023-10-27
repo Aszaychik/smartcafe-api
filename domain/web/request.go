@@ -1,52 +1,64 @@
 package web
 
+import "aszaychik/smartcafe-api/domain"
+
 type AdminCreateRequest struct {
-	Username string `json:"username" validate:"required,min=1,max=255"`
-	Password string `json:"password" validate:"required,min=8,max=255"`
+	Username string `json:"username" validate:"required,min=1"`
+	Password string `json:"password" validate:"required,min=8"`
 }
 
 type AdminLoginRequest struct {
-	Username string `json:"username" validate:"required,min=1,max=255"`
-	Password string `json:"password" validate:"required,max=255"`
+	Username string `json:"username" validate:"required,min=1"`
+	Password string `json:"password" validate:"required"`
 }
 
 type AdminUpdateRequest struct {
-	Username string `json:"username" validate:"min=1,max=255"`
-	Password string `json:"password" validate:"min=8,max=255"`
+	Username string `json:"username" validate:"min=1"`
+	Password string `json:"password" validate:"min=8"`
 }
 
 type CategoryCreateRequest struct {
-	CategoryName        string `json:"category_name" validate:"required,min=1,max=255"`
-	CategoryDescription string `json:"category_description" validate:"min=1,max=255"`
+	CategoryName        string `json:"category_name" validate:"required,min=1"`
+	CategoryDescription string `json:"category_description" validate:"min=1"`
 }
 
 type CategoryUpdateRequest struct {
-	CategoryName        string `json:"category_name" validate:"min=1,max=255"`
-	CategoryDescription string `json:"category_description" validate:"min=1,max=255"`
+	CategoryName        string `json:"category_name" validate:"min=1"`
+	CategoryDescription string `json:"category_description" validate:"min=1"`
 }
 
 type MenuCreateRequest struct {
-	ItemName        string `json:"item_name" validate:"required,min=1,max=255"`
-	ItemPrice       int    `json:"item_price" validate:"required"`
-	ItemDescription string `json:"item_description" validate:"min=1,max=255"`
-	ItemImage       string `json:"item_image" validate:"min=1,max=255"`
-	CategoryId      int    `json:"category_id" validate:"required,min=1,max=255"`
+	ItemName        string `json:"item_name" validate:"required,min=1"`
+	ItemPrice       float64    `json:"item_price" validate:"required"`
+	ItemDescription string `json:"item_description" validate:"min=1"`
+	ItemImage       string `json:"item_image" validate:"min=1"`
+	CategoryId      int    `json:"category_id" validate:"required,min=1"`
 }
 
 type MenuUpdateRequest struct {
-	ItemName        string `json:"item_name" validate:"min=1,max=255"`
-	ItemPrice       int    `json:"item_price"`
-	ItemDescription string `json:"item_description" validate:"min=1,max=255"`
-	ItemImage       string `json:"item_image" validate:"min=1,max=255"`
-	CategoryId      int    `json:"category_id" validate:"min=1,max=255"`
+	ItemName        string `json:"item_name" validate:"min=1"`
+	ItemPrice       float64    `json:"item_price"`
+	ItemDescription string `json:"item_description" validate:"min=1"`
+	ItemImage       string `json:"item_image" validate:"min=1"`
+	CategoryId      int    `json:"category_id" validate:"min=1"`
 }
 
 type CustomerCreateRequest struct {
-	CustomerName  string `json:"customer_name" validate:"required,min=1,max=255"`
+	CustomerName  string `json:"customer_name" validate:"required,min=1"`
 	CustomerEmail string `json:"customer_email" validate:"required,email"`
 }
 
 type CustomerUpdateRequest struct {
-	CustomerName  string `json:"customer_name" validate:"min=1,max=255"`
+	CustomerName  string `json:"customer_name" validate:"min=1"`
 	CustomerEmail string `json:"customer_email" validate:"email"`
+}
+
+type OrderItemRequest struct {
+	ItemID   int `json:"item_id" validate:"required,min=1"`
+	Quantity int `json:"quantity" validate:"required,min=1"`
+}
+
+type OrderCreateRequest struct {
+	CustomerId int     `json:"customer_id" validate:"required,min=1"`
+	Items      []domain.OrderItem `json:"items" validate:"required,min=1"`
 }

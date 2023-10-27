@@ -5,6 +5,7 @@ import (
 	"aszaychik/smartcafe-api/internal/app/category"
 	"aszaychik/smartcafe-api/internal/app/customer"
 	"aszaychik/smartcafe-api/internal/app/menu"
+	"aszaychik/smartcafe-api/internal/app/order"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
 	"context"
@@ -63,13 +64,21 @@ func main() {
 	customerHandler := customer.NewCustomerHandler(customerService)
 	customerRoutes := customer.NewCustomerRoutes(e, customerHandler)
 
+	// Order
+	orderRepository := order.NewOrderRepository(db)
+	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate)
+	orderHandler := order.NewOrderHandler(orderService)
+	orderRoutes := order.NewOrderRoutes(e, orderHandler)
+
+
 	// Set up routes
 	adminRoutes.Auth()
 	adminRoutes.Admin()
 	menuRoutes.Menu()
 	categoryRoutes.Category()
 	customerRoutes.Customer()
-
+	orderRoutes.Order()
+	
 	// Middleware and server configuration
 	e.Pre(middleware.RemoveTrailingSlash())
 	e.Use(middleware.CORS())
