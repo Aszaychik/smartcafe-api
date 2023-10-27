@@ -8,6 +8,7 @@ import (
 	"aszaychik/smartcafe-api/internal/app/order"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
+	"aszaychik/smartcafe-api/pkg/midtrans"
 	"context"
 	"net/http"
 	"os"
@@ -35,6 +36,8 @@ func main() {
 
 	// Create a validator instance
 	validate := validator.New()
+
+	snapClient := midtrans.New(&cfg.Midtrans)
 
 	// Create an Echo instance
 	e := echo.New()
@@ -66,7 +69,7 @@ func main() {
 
 	// Order
 	orderRepository := order.NewOrderRepository(db)
-	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate)
+	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate, snapClient)
 	orderHandler := order.NewOrderHandler(orderService)
 	orderRoutes := order.NewOrderRoutes(e, orderHandler)
 
