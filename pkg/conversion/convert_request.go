@@ -79,7 +79,6 @@ func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice 
 	order := &domain.Order{
 		CustomerID:  uint(request.CustomerId),
 		OrderDate:   time.Now(),
-		OrderStatus: domain.Pending,
 		TotalPrice:  totalPrice,
 	}
 
