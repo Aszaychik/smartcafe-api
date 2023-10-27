@@ -10,6 +10,7 @@ import (
 type OrderRepository interface {
 	Save(order *domain.Order) (*domain.Order, error)
 	FindById(orderId int) (*domain.Order, error)
+	UpdateOrderStatus(orderPayment domain.PaymentStatus) error
 }
 
 type OrderService interface {
