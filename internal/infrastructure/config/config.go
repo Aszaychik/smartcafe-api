@@ -25,5 +25,8 @@ func LoadConfig() (*config.AppConfig, error) {
 					Port:     os.Getenv("DB_PORT"),
 					Database: os.Getenv("DB_NAME"),
 			},
+			Midtrans: config.MidtransConfig{
+				ServerKey: os.Getenv("MIDTRANS_SERVER_KEY"),
+			},
 	}, nil
 }

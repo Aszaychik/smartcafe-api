@@ -27,7 +27,7 @@ func (repository *OrderRepositoryImpl) Save(order *domain.Order) (*domain.Order,
 func (repository *OrderRepositoryImpl) FindById(orderId int) (*domain.Order, error) {
 	order := domain.Order{}
 
-	result := repository.DB.Preload("Items").Preload("Customer").First(&order, orderId)
+	result := repository.DB.Preload("Items").Preload("Customer").Preload("OrderPayment").First(&order, orderId)
 	if result.Error != nil {
 		return nil, result.Error
 	}
@@ -40,4 +40,13 @@ func (repository *OrderRepositoryImpl) FindById(orderId int) (*domain.Order, err
 	}
 
 	return &order, nil
+}
+
+func (repository *OrderRepositoryImpl) UpdateOrderStatus(orderPayment domain.PaymentStatus) error {
+	result := repository.DB.Table("Orders").Where("ID = ?", orderPayment.OrderID).Update("order_status", orderPayment.PaymentStatus)
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
 }

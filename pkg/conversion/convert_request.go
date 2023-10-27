@@ -79,7 +79,6 @@ func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice 
 	order := &domain.Order{
 		CustomerID:  uint(request.CustomerId),
 		OrderDate:   time.Now(),
-		OrderStatus: domain.Pending,
 		TotalPrice:  totalPrice,
 	}
 
@@ -90,6 +89,16 @@ func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice 
 		}
 
 		order.Items = append(order.Items, *orderItem)
+	}
+
+	return order
+}
+
+func OrderCreateDomainToOrderPaymentDomain(order *domain.Order, id string, paymentUrl string) *domain.Order {
+	order.OrderPayment = domain.OrderPayment{
+		ID: id,
+		PaymentUrl: paymentUrl,
+		PaymentDate: time.Now(),
 	}
 
 	return order

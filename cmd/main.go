@@ -6,8 +6,10 @@ import (
 	"aszaychik/smartcafe-api/internal/app/customer"
 	"aszaychik/smartcafe-api/internal/app/menu"
 	"aszaychik/smartcafe-api/internal/app/order"
+	"aszaychik/smartcafe-api/internal/app/payment"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
+	"aszaychik/smartcafe-api/pkg/midtrans"
 	"context"
 	"net/http"
 	"os"
@@ -35,6 +37,10 @@ func main() {
 
 	// Create a validator instance
 	validate := validator.New()
+
+	// Midtrans config
+	snapClient := midtrans.NewMidtransSnapClient(&cfg.Midtrans)
+	coreApiClient := midtrans.NewMidtransCoreAPIClient(&cfg.Midtrans)
 
 	// Create an Echo instance
 	e := echo.New()
@@ -66,9 +72,15 @@ func main() {
 
 	// Order
 	orderRepository := order.NewOrderRepository(db)
-	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate)
+	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate, snapClient)
 	orderHandler := order.NewOrderHandler(orderService)
 	orderRoutes := order.NewOrderRoutes(e, orderHandler)
+
+	// OrderPayment
+	orderPaymentRepository := payment.NewOrderPaymentRepository(db)
+	orderPaymentService := payment.NewOrderPaymentService(orderPaymentRepository, orderRepository, coreApiClient)
+	orderPaymentHandler := payment.NewOrderPaymentHandler(orderPaymentService)
+	orderPaymentRoutes := payment.NewOrderPaymentRoutes(e, orderPaymentHandler)
 
 
 	// Set up routes
@@ -78,6 +90,7 @@ func main() {
 	categoryRoutes.Category()
 	customerRoutes.Customer()
 	orderRoutes.Order()
+	orderPaymentRoutes.OrderPayment()
 	
 	// Middleware and server configuration
 	e.Pre(middleware.RemoveTrailingSlash())
