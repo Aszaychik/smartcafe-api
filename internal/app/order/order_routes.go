@@ -22,4 +22,5 @@ func (ar *OrderRoutesImpl) Order() {
 	ordersGroup := ar.Echo.Group("orders")
 
 	ordersGroup.POST("", ar.OrderHandler.CreateOrderHandler)
+	ordersGroup.GET("/:id", ar.OrderHandler.GetOrderHandler)
 }

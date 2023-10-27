@@ -15,10 +15,12 @@ type OrderRepository interface {
 type OrderService interface {
 	CreateOrder(ctx echo.Context, request web.OrderCreateRequest) (*domain.Order, error)
 	CalculateTotalPrice(items []domain.OrderItem) (float64, error)
+	FindById(ctx echo.Context, id int) (*domain.Order, error)
 }
 
 type OrderHandler interface {
 	CreateOrderHandler(ctx echo.Context) error
+	GetOrderHandler(ctx echo.Context) error
 }
 
 type OrderRoutes interface {

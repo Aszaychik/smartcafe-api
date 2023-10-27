@@ -82,3 +82,13 @@ func (service *OrderServiceImpl) CalculateTotalPrice(items []domain.OrderItem) (
 
 	return totalPrice, nil
 }
+
+func (service *OrderServiceImpl) FindById(ctx echo.Context, id int) (*domain.Order, error) {
+	// Check if the order exists
+	existingOrder, _ := service.OrderRepository.FindById(id)
+	if existingOrder == nil {
+		return nil, fmt.Errorf("Order not found")
+	}
+
+	return existingOrder, nil
+}
