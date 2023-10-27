@@ -106,7 +106,7 @@ func (service *OrderServiceImpl) FindById(ctx echo.Context, id int) (*domain.Ord
 }
 
 func (service *OrderServiceImpl) SnapRequest(order *domain.Order) (string, string, error) {
-	orderId := fmt.Sprintf("ORDER-%d-%d-%s", order.CustomerID, order.ID, uuid.NewString())
+	orderId := fmt.Sprintf("ORDER-%d-%s", order.CustomerID, uuid.NewString())
 	snapClient := service.SnapClient
 	snapResponse, err := midtrans.CreateSnapRequest(snapClient, orderId, int64(order.TotalPrice))
 	if err != nil {
