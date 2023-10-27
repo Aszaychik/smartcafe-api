@@ -14,6 +14,7 @@ type OrderRepository interface {
 
 type OrderService interface {
 	CreateOrder(ctx echo.Context, request web.OrderCreateRequest) (*domain.Order, error)
+	CalculateTotalPrice(items []domain.OrderItem) (float64, error)
 }
 
 type OrderHandler interface {

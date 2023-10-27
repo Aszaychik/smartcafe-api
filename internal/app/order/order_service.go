@@ -45,7 +45,7 @@ func (service *OrderServiceImpl) CreateOrder(ctx echo.Context, request web.Order
 	}
 
 	// Calculate total price and create the order domain object
-	totalPrice, err := service.calculateTotalPrice(request.Items)
+	totalPrice, err := service.CalculateTotalPrice(request.Items)
 	if err != nil {
 		return nil, fmt.Errorf("failed to calculate total price: %w", err)
 	}
@@ -67,7 +67,7 @@ func (service *OrderServiceImpl) CreateOrder(ctx echo.Context, request web.Order
 	return result, nil
 }
 
-func (service *OrderServiceImpl) calculateTotalPrice(items []domain.OrderItem) (float64, error) {
+func (service *OrderServiceImpl) CalculateTotalPrice(items []domain.OrderItem) (float64, error) {
 	var totalPrice float64
 
 	for _, item := range items {
