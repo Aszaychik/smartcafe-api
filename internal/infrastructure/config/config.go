@@ -28,5 +28,8 @@ func LoadConfig() (*config.AppConfig, error) {
 			Midtrans: config.MidtransConfig{
 				ServerKey: os.Getenv("MIDTRANS_SERVER_KEY"),
 			},
+			Barcode: config.BarcodeConfig{
+				WifiKey: os.Getenv("WIFI_SECRET_KEY"),
+			},
 	}, nil
 }

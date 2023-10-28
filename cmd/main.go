@@ -102,7 +102,7 @@ func main() {
 		},
 	))
 
-	barcode.GenerateBarcode()
+	barcode.GenerateBarcode(&cfg.Barcode)
 	// Start the Echo server in a goroutine
 	go func() {
 		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {

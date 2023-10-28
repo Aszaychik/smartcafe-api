@@ -1,6 +1,7 @@
 package barcode
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"fmt"
 	"image/png"
 	"os"
@@ -9,8 +10,8 @@ import (
 	"github.com/boombuler/barcode/qr"
 )
 
-func GenerateBarcode() error {
-	qrCode, err := qr.Encode("WIFI:T:WPA;S:AsZaychik;P:sudo apt-get update;H:;;", qr.M, qr.Auto)
+func GenerateBarcode(config *config.BarcodeConfig) error {
+	qrCode, err := qr.Encode(config.WifiKey, qr.M, qr.Auto)
 	if err != nil {
 		return fmt.Errorf("failed encode qr: %w", err)
 	}
