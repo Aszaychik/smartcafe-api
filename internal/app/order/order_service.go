@@ -4,6 +4,7 @@ import (
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/domain/web"
 	"aszaychik/smartcafe-api/internal/interfaces"
+	"aszaychik/smartcafe-api/pkg/barcode"
 	"aszaychik/smartcafe-api/pkg/conversion"
 	"aszaychik/smartcafe-api/pkg/midtrans"
 	"aszaychik/smartcafe-api/pkg/validation"
@@ -21,15 +22,17 @@ type OrderServiceImpl struct {
 	CustomerRepository interfaces.CustomerRepository
 	Validate       *validator.Validate
 	SnapClient snap.Client
+	BarcodeGenerator barcode.BarcodeGenerator
 }
 
-func NewOrderService(orderRepository interfaces.OrderRepository, menuRepository interfaces.MenuRepository, customerRepository interfaces.CustomerRepository, validate *validator.Validate, snapClient snap.Client) interfaces.OrderService {
+func NewOrderService(orderRepository interfaces.OrderRepository, menuRepository interfaces.MenuRepository, customerRepository interfaces.CustomerRepository, validate *validator.Validate, snapClient snap.Client, barcodeGenerator barcode.BarcodeGenerator) interfaces.OrderService {
 	return &OrderServiceImpl{
 		OrderRepository: orderRepository,
 		MenuRepository:  menuRepository,
 		CustomerRepository: customerRepository,
 		Validate: validate,
 		SnapClient: snapClient,
+		BarcodeGenerator: barcodeGenerator,
 	}
 }
 
@@ -74,6 +77,11 @@ func (service *OrderServiceImpl) CreateOrder(ctx echo.Context, request web.Order
 	result, err = service.OrderRepository.FindById(int(result.ID))
 	if err != nil {
 		return nil, fmt.Errorf("failed to find order: %w", err)
+	}
+
+	err = service.BarcodeGenerator.GenerateBarcodeWifiAccess(result)
+	if err != nil {
+		return nil, fmt.Errorf("failed to generate barcode: %w", err)
 	}
 
 	return result, nil
