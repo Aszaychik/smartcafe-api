@@ -110,6 +110,14 @@ func (service *OrderServiceImpl) FindById(ctx echo.Context, id int) (*domain.Ord
 		return nil, fmt.Errorf("Order not found")
 	}
 
+	if existingOrder.OrderStatus == "success" {
+		existingOrder.WifiAccessUrl = fmt.Sprintf(
+			"https://smartcafebucket.s3.ap-southeast-1.amazonaws.com/wifi-accesses/%s-wifi-access-%d.png",
+			existingOrder.Customer.CustomerName,
+			existingOrder.ID,
+		)
+	}
+
 	return existingOrder, nil
 }
 
