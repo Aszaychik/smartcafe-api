@@ -3,6 +3,7 @@ package config
 type AppConfig struct {
 	MySQL    MySQLConfig
 	Midtrans MidtransConfig
+	Barcode  BarcodeConfig
 }
 
 type MySQLConfig struct {
@@ -15,4 +16,8 @@ type MySQLConfig struct {
 
 type MidtransConfig struct {
 	ServerKey string
+}
+
+type BarcodeConfig struct {
+	WifiKey string
 }
