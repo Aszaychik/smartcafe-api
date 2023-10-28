@@ -33,6 +33,15 @@ func (repository *MenuRepositoryImpl) Update(menu *domain.Menu, id int) (*domain
 	return menu, nil
 }
 
+func (repository *MenuRepositoryImpl) UpdateImage(itemImage string, id int) error {
+	result := repository.DB.Table("menus").Where("id = ?", id).Update("item_image", itemImage)
+	if result.Error != nil {
+		return result.Error
+	}
+
+	return nil
+}
+
 func (repository *MenuRepositoryImpl) FindById(id int) (*domain.Menu, error) {
 	menu := domain.Menu{}
 
