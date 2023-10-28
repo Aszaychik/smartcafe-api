@@ -9,6 +9,7 @@ import (
 	"aszaychik/smartcafe-api/internal/app/payment"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
+	"aszaychik/smartcafe-api/pkg/barcode"
 	"aszaychik/smartcafe-api/pkg/midtrans"
 	"context"
 	"net/http"
@@ -101,6 +102,7 @@ func main() {
 		},
 	))
 
+	barcode.GenerateBarcode()
 	// Start the Echo server in a goroutine
 	go func() {
 		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
