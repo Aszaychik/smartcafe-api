@@ -11,4 +11,5 @@ type Order struct {
 	Customer Customer `gorm:"foreignKey:CustomerID" json:"customer"`
 	Items []OrderItem `gorm:"foreignKey:OrderID" json:"items"`
 	OrderPayment OrderPayment `gorm:"foreignKey:OrderID" json:"payment"`
+	WifiAccessUrl string `gorm:"type:varchar(255)" json:"wifi_access_url"`
 }
