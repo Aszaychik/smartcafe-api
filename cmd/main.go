@@ -7,6 +7,7 @@ import (
 	"aszaychik/smartcafe-api/internal/app/menu"
 	"aszaychik/smartcafe-api/internal/app/order"
 	"aszaychik/smartcafe-api/internal/app/payment"
+	"aszaychik/smartcafe-api/internal/infrastructure/aws"
 	"aszaychik/smartcafe-api/internal/infrastructure/config"
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
 	"aszaychik/smartcafe-api/pkg/barcode"
@@ -35,6 +36,13 @@ func main() {
 	if err != nil {
 		logrus.Fatal("Error connecting to MySQL:", err.Error())
 	}
+
+	s3Client, err := aws.NewS3Client(&cfg.AWS)
+	if err != nil {
+		logrus.Fatal("Error connecting to MySQL:", err.Error())
+	}
+
+	barcodeGenerator := barcode.NewBarcodeGenerator(&cfg.Barcode, &cfg.AWS, s3Client)
 
 	// Create a validator instance
 	validate := validator.New()
@@ -73,7 +81,7 @@ func main() {
 
 	// Order
 	orderRepository := order.NewOrderRepository(db)
-	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate, snapClient)
+	orderService := order.NewOrderService(orderRepository, menuRepository, customerRepository, validate, snapClient, barcodeGenerator)
 	orderHandler := order.NewOrderHandler(orderService)
 	orderRoutes := order.NewOrderRoutes(e, orderHandler)
 
@@ -102,7 +110,6 @@ func main() {
 		},
 	))
 
-	barcode.GenerateBarcode(&cfg.Barcode)
 	// Start the Echo server in a goroutine
 	go func() {
 		if err := e.Start(":8080"); err != nil && err != http.ErrServerClosed {
