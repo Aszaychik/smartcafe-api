@@ -12,6 +12,7 @@ import (
 	"aszaychik/smartcafe-api/internal/infrastructure/database"
 	"aszaychik/smartcafe-api/pkg/barcode"
 	"aszaychik/smartcafe-api/pkg/midtrans"
+	"aszaychik/smartcafe-api/pkg/uploader"
 	"context"
 	"net/http"
 	"os"
@@ -42,7 +43,8 @@ func main() {
 		logrus.Fatal("Error connecting to MySQL:", err.Error())
 	}
 
-	barcodeGenerator := barcode.NewBarcodeGenerator(&cfg.Barcode, &cfg.AWS, s3Client)
+	s3Uploader := uploader.NewAWSUploader(&cfg.AWS, s3Client)
+	barcodeGenerator := barcode.NewBarcodeGenerator(&cfg.Barcode, s3Uploader)
 
 	// Create a validator instance
 	validate := validator.New()
@@ -63,7 +65,7 @@ func main() {
 
 	// Menu
 	menuRepository := menu.NewMenuRepository(db)
-	menuService := menu.NewMenuService(menuRepository, validate)
+	menuService := menu.NewMenuService(menuRepository, validate, s3Uploader)
 	menuHandler := menu.NewMenuHandler(menuService)
 	menuRoutes := menu.NewMenuRoutes(e, menuHandler)
 

@@ -71,6 +71,34 @@ func (handler *MenuHandlerImpl) UpdateMenuHandler(ctx echo.Context) error {
 	return res.StatusOK(ctx, "Success to update menu", response)
 }
 
+func (handler *MenuHandlerImpl) UploadImageMenuHandler(ctx echo.Context) error {
+	menuId := ctx.Param("id")
+	menuIdInt, err := strconv.Atoi(menuId)
+	if err != nil {
+		return res.StatusInternalServerError(ctx, err)
+	}
+
+	itemImage, err := ctx.FormFile("item_image")
+	if err != nil {
+		return res.StatusInternalServerError(ctx, err)
+	}
+
+	response, err := handler.MenuService.UpdateImageMenu(ctx, itemImage, menuIdInt)
+	if err != nil {
+		if strings.Contains(err.Error(), "Validation failed") {
+			return res.StatusBadRequest(ctx, err)
+		}
+
+		if strings.Contains(err.Error(), "not found") {
+			return res.StatusNotFound(ctx, err)
+		}
+
+		return res.StatusInternalServerError(ctx, err)
+	}
+
+	return res.StatusOK(ctx, "Success to update menu", response)
+}
+
 func (handler *MenuHandlerImpl) GetMenuHandler(ctx echo.Context) error {
 	menuId := ctx.Param("id")
 	menuIdInt, err := strconv.Atoi(menuId)

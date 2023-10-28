@@ -18,12 +18,13 @@ func NewMenuRoutes(e *echo.Echo, menuHandler interfaces.MenuHandler) interfaces.
 	}
 }
 
-func (ar *MenuRoutesImpl) Menu() {
-	menusGroup := ar.Echo.Group("menus")
+func (mr *MenuRoutesImpl) Menu() {
+	menusGroup := mr.Echo.Group("menus")
 
-	menusGroup.POST("", ar.MenuHandler.CreateMenuHandler)
-	menusGroup.GET("", ar.MenuHandler.GetMenusHandler)
-	menusGroup.GET("/:id", ar.MenuHandler.GetMenuHandler)
-	menusGroup.PUT("/:id", ar.MenuHandler.UpdateMenuHandler)
-	menusGroup.DELETE("/:id", ar.MenuHandler.DeleteMenuHandler)
+	menusGroup.POST("", mr.MenuHandler.CreateMenuHandler)
+	menusGroup.GET("", mr.MenuHandler.GetMenusHandler)
+	menusGroup.GET("/:id", mr.MenuHandler.GetMenuHandler)
+	menusGroup.PUT("/:id", mr.MenuHandler.UpdateMenuHandler)
+	menusGroup.PATCH("/:id", mr.MenuHandler.UploadImageMenuHandler)
+	menusGroup.DELETE("/:id", mr.MenuHandler.DeleteMenuHandler)
 }
