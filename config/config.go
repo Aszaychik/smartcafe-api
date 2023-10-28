@@ -4,6 +4,7 @@ type AppConfig struct {
 	MySQL    MySQLConfig
 	Midtrans MidtransConfig
 	Barcode  BarcodeConfig
+	AWS      AWSConfig
 }
 
 type MySQLConfig struct {
@@ -20,4 +21,11 @@ type MidtransConfig struct {
 
 type BarcodeConfig struct {
 	WifiKey string
+}
+
+type AWSConfig struct {
+	Region          string
+	AccessKeyId     string
+	SecretAccessKey string
+	BucketName      string
 }

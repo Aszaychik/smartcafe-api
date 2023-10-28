@@ -31,5 +31,11 @@ func LoadConfig() (*config.AppConfig, error) {
 			Barcode: config.BarcodeConfig{
 				WifiKey: os.Getenv("WIFI_SECRET_KEY"),
 			},
+			AWS: config.AWSConfig{
+				Region: os.Getenv("AWS_REGION"),
+				AccessKeyId: os.Getenv("AWS_ACCESS_KEY_ID"),
+				SecretAccessKey: os.Getenv("AWS_SECRET_ACCESS_KEY"),
+				BucketName: os.Getenv("AWS_BUCKET_NAME"),
+			},
 	}, nil
 }
