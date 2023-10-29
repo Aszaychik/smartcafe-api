@@ -60,5 +60,6 @@ type OrderItemRequest struct {
 
 type OrderCreateRequest struct {
 	CustomerId int     `json:"customer_id" validate:"required,min=1"`
+	SeatNumber int     `json:"seat_number" validate:"required,min=1"`
 	Items      []domain.OrderItem `json:"items" validate:"required,min=1"`
 }

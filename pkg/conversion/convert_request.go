@@ -80,6 +80,7 @@ func OrderCreateRequestToOrderDomain(request web.OrderCreateRequest, totalPrice 
 		CustomerID:  uint(request.CustomerId),
 		OrderDate:   time.Now(),
 		TotalPrice:  totalPrice,
+		SeatNumber: request.SeatNumber,
 	}
 
 	for _, itemRequest := range request.Items {
