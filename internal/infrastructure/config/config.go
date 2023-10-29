@@ -39,6 +39,7 @@ func LoadConfig() (*config.AppConfig, error) {
 			},
 			Auth: config.AuthConfig{
 				XAPIKey: os.Getenv("X_API_KEY"),
+				JWTSecret: os.Getenv("JWT_SECRET"),
 			},
 	}, nil
 }

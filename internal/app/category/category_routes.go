@@ -25,7 +25,7 @@ func (ar *CategoryRoutesImpl) Category(config *config.AuthConfig) {
 	categoriesGroup := ar.Echo.Group("categories")
 
 	categoriesGroup.Use(middleware.JWTWithConfig(middleware.JWTConfig{
-		SigningKey: []byte(config.XAPIKey),
+		SigningKey: []byte([]byte(config.JWTSecret)),
 	}))
 	categoriesGroup.POST("", ar.CategoryHandler.CreateCategoryHandler)
 	categoriesGroup.GET("", ar.CategoryHandler.GetCategoriesHandler)

@@ -33,7 +33,7 @@ func (ar *AdminRoutesImpl) Admin(config *config.AuthConfig) {
 	adminsGroup := ar.Echo.Group("admins")
 
 	adminsGroup.Use(eMiddleware.JWTWithConfig(eMiddleware.JWTConfig{
-		SigningKey: []byte(config.XAPIKey),
+		SigningKey: []byte([]byte(config.JWTSecret)),
 	}))
 	adminsGroup.GET("", ar.AdminHandler.GetAdminsHandler)
 	adminsGroup.GET("/:id", ar.AdminHandler.GetAdminHandler)

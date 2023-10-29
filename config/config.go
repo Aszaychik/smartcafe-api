@@ -32,5 +32,6 @@ type AWSConfig struct {
 }
 
 type AuthConfig struct {
-	XAPIKey string
+	XAPIKey   string
+	JWTSecret string
 }

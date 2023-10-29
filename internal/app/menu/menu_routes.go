@@ -27,7 +27,7 @@ func (mr *MenuRoutesImpl) Menu(config *config.AuthConfig) {
 	menusGroup.GET("/:id", mr.MenuHandler.GetMenuHandler)
 
 	menusGroup.Use(middleware.JWTWithConfig(middleware.JWTConfig{
-		SigningKey: []byte(config.XAPIKey),
+		SigningKey: []byte([]byte(config.JWTSecret)),
 	}))
 	menusGroup.POST("", mr.MenuHandler.CreateMenuHandler)
 	menusGroup.PUT("/:id", mr.MenuHandler.UpdateMenuHandler)
