@@ -60,5 +60,18 @@ type OrderItemRequest struct {
 
 type OrderCreateRequest struct {
 	CustomerId int     `json:"customer_id" validate:"required,min=1"`
+	SeatNumber int     `json:"seat_number" validate:"required,min=1"`
 	Items      []domain.OrderItem `json:"items" validate:"required,min=1"`
+}
+
+type FeedbackCreateRequest struct {
+	CustomerId int    `json:"customer_id" validate:"required,min=1"`
+	OrderId    int    `json:"order_id" validate:"required,min=1"`
+	FeedbackText string `json:"feedback_text" validate:"required,min=1"`
+	FeedbackRating int    `json:"feedback_rating" validate:"required,min=1"`
+}
+
+type FeedbackUpdateRequest struct {
+	FeedbackText string `json:"feedback_text" validate:"min=1"`
+	FeedbackRating int    `json:"feedback_rating" validate:"min=1"`
 }

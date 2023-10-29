@@ -27,7 +27,7 @@ func (repository *OrderRepositoryImpl) Save(order *domain.Order) (*domain.Order,
 func (repository *OrderRepositoryImpl) FindById(orderId int) (*domain.Order, error) {
 	order := domain.Order{}
 
-	result := repository.DB.Preload("Items").Preload("Customer").Preload("OrderPayment").First(&order, orderId)
+	result := repository.DB.Preload("Items").Preload("Customer").Preload("OrderPayment").Preload("OrderReview.Customer").First(&order, orderId)
 	if result.Error != nil {
 		return nil, result.Error
 	}

@@ -25,7 +25,7 @@ func (repository *MenuRepositoryImpl) Save(menu *domain.Menu) (*domain.Menu, err
 }
 
 func (repository *MenuRepositoryImpl) Update(menu *domain.Menu, id int) (*domain.Menu, error) {
-	result := repository.DB.Preload("Category").Save(&menu)
+	result := repository.DB.Where("id = ?", id).Updates(domain.Menu{ItemName: menu.ItemName, ItemPrice: menu.ItemPrice, ItemDescription: menu.ItemDescription, CategoryID: menu.CategoryID})
 	if result.Error != nil {
 		return nil, result.Error
 	}
