@@ -4,6 +4,7 @@ import (
 	"aszaychik/smartcafe-api/internal/app/admin"
 	"aszaychik/smartcafe-api/internal/app/category"
 	"aszaychik/smartcafe-api/internal/app/customer"
+	"aszaychik/smartcafe-api/internal/app/feedback"
 	"aszaychik/smartcafe-api/internal/app/menu"
 	"aszaychik/smartcafe-api/internal/app/order"
 	"aszaychik/smartcafe-api/internal/app/payment"
@@ -93,6 +94,11 @@ func main() {
 	orderPaymentHandler := payment.NewOrderPaymentHandler(orderPaymentService)
 	orderPaymentRoutes := payment.NewOrderPaymentRoutes(e, orderPaymentHandler)
 
+	// Feedback
+	feedbackRepository := feedback.NewFeedbackRepository(db)
+	feedbackService := feedback.NewFeedbackService(feedbackRepository, validate)
+	feedbackHandler := feedback.NewFeedbackHandler(feedbackService)
+	feedbackRoutes := feedback.NewFeedbackRoutes(e, feedbackHandler)
 
 	// Set up routes
 	adminRoutes.Auth()
@@ -102,6 +108,7 @@ func main() {
 	customerRoutes.Customer()
 	orderRoutes.Order()
 	orderPaymentRoutes.OrderPayment()
+	feedbackRoutes.Feedback()
 	
 	// Middleware and server configuration
 	e.Pre(middleware.RemoveTrailingSlash())
