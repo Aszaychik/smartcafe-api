@@ -104,3 +104,21 @@ func OrderCreateDomainToOrderPaymentDomain(order *domain.Order, id string, payme
 
 	return order
 }
+
+func FeedbackCreateRequestToFeedbackDomain(request web.FeedbackCreateRequest) *domain.Feedback {
+	return &domain.Feedback{
+		CustomerID: uint(request.CustomerId),
+		OrderID: uint(request.OrderId),
+		FeedbackText: request.FeedbackText,
+		FeedbackRating: request.FeedbackRating,
+		FeedbackDate: time.Now(),
+	}
+}
+
+func FeedbackUpdateRequestToFeedbackDomain(request web.FeedbackUpdateRequest) *domain.Feedback {
+	return &domain.Feedback{
+		FeedbackText: request.FeedbackText,
+		FeedbackRating: request.FeedbackRating,
+		FeedbackDate: time.Now(),
+	}
+}
