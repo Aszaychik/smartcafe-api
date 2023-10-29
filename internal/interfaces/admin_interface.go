@@ -37,5 +37,5 @@ type AdminHandler interface {
 
 type AdminRoutes interface {
 	Auth(config *config.AuthConfig)
-	Admin()
+	Admin(config *config.AuthConfig)
 }

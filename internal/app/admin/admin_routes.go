@@ -5,6 +5,8 @@ import (
 	"aszaychik/smartcafe-api/internal/interfaces"
 	"aszaychik/smartcafe-api/internal/middleware"
 
+	eMiddleware "github.com/labstack/echo/v4/middleware"
+
 	"github.com/labstack/echo/v4"
 )
 
@@ -27,9 +29,12 @@ func (ar *AdminRoutesImpl) Auth(config *config.AuthConfig) {
 	authGroup.POST("/register", ar.AdminHandler.RegisterAdminHandler, middleware.RegisterAuth(config))
 }
 
-func (ar *AdminRoutesImpl) Admin() {
+func (ar *AdminRoutesImpl) Admin(config *config.AuthConfig) {
 	adminsGroup := ar.Echo.Group("admins")
 
+	adminsGroup.Use(eMiddleware.JWTWithConfig(eMiddleware.JWTConfig{
+		SigningKey: []byte(config.XAPIKey),
+	}))
 	adminsGroup.GET("", ar.AdminHandler.GetAdminsHandler)
 	adminsGroup.GET("/:id", ar.AdminHandler.GetAdminHandler)
 	adminsGroup.PUT("/:id", ar.AdminHandler.UpdateAdminHandler)

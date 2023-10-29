@@ -1,9 +1,11 @@
 package customer
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"aszaychik/smartcafe-api/internal/interfaces"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 type CustomerRoutesImpl struct {
@@ -18,9 +20,12 @@ func NewCustomerRoutes(e *echo.Echo, customerHandler interfaces.CustomerHandler)
 	}
 }
 
-func (ar *CustomerRoutesImpl) Customer() {
+func (ar *CustomerRoutesImpl) Customer(config *config.AuthConfig) {
 	customersGroup := ar.Echo.Group("customers")
 
+	customersGroup.Use(middleware.JWTWithConfig(middleware.JWTConfig{
+		SigningKey: []byte(config.XAPIKey),
+	}))
 	customersGroup.POST("", ar.CustomerHandler.CreateCustomerHandler)
 	customersGroup.GET("", ar.CustomerHandler.GetCustomersHandler)
 	customersGroup.GET("/:id", ar.CustomerHandler.GetCustomerHandler)
