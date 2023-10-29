@@ -37,5 +37,8 @@ func LoadConfig() (*config.AppConfig, error) {
 				SecretAccessKey: os.Getenv("AWS_SECRET_ACCESS_KEY"),
 				BucketName: os.Getenv("AWS_BUCKET_NAME"),
 			},
+			Auth: config.AuthConfig{
+				XAPIKey: os.Getenv("X_API_KEY"),
+			},
 	}, nil
 }
