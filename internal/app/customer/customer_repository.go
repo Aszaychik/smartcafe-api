@@ -25,7 +25,7 @@ func (repository *CustomerRepositoryImpl) Save(customer *domain.Customer) (*doma
 }
 
 func (repository *CustomerRepositoryImpl) Update(customer *domain.Customer, id int) (*domain.Customer, error) {
-	result := repository.DB.Save(&customer)
+	result := repository.DB.Where("id = ?", id).Updates(domain.Customer{CustomerName: customer.CustomerName, CustomerEmail: customer.CustomerEmail})
 	if result.Error != nil {
 		return nil, result.Error
 	}

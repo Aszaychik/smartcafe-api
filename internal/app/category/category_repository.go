@@ -25,7 +25,7 @@ func (repository *CategoryRepositoryImpl) Save(category *domain.Category) (*doma
 }
 
 func (repository *CategoryRepositoryImpl) Update(category *domain.Category, id int) (*domain.Category, error) {
-	result := repository.DB.Save(&category)
+	result := repository.DB.Where("id = ?", id).Updates(domain.Category{CategoryName: category.CategoryName, CategoryDescription: category.CategoryDescription})
 	if result.Error != nil {
 		return nil, result.Error
 	}
