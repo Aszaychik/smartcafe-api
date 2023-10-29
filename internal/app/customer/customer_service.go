@@ -45,6 +45,8 @@ func (service *CustomerServiceImpl) CreateCustomer(ctx echo.Context, request web
 		return nil, fmt.Errorf("Error when create : %s", err.Error())
 	}
 
+	result, _ = service.CustomerRepository.FindByEmail(request.CustomerEmail)
+
 	return result, nil
 }
 
@@ -56,9 +58,14 @@ func (service *CustomerServiceImpl) UpdateCustomer(ctx echo.Context, request web
 	}
 
 	// Check if the customer exists
-	existingCustomer, _ := service.CustomerRepository.FindById(id)
-	if existingCustomer == nil {
+	existingCustomerId, _ := service.CustomerRepository.FindById(id)
+	if existingCustomerId == nil {
 		return nil, fmt.Errorf("Customer not found")
+	}
+
+	existingCustomerEmail, _ := service.CustomerRepository.FindByEmail(request.CustomerEmail)
+	if existingCustomerEmail != nil {
+		return nil, fmt.Errorf("Customer Email already exists")
 	}
 
 	// Convert request to domain
@@ -68,6 +75,8 @@ func (service *CustomerServiceImpl) UpdateCustomer(ctx echo.Context, request web
 	if err != nil {
 		return nil, fmt.Errorf("Error when updating : %s", err.Error())
 	}
+
+	result, _ = service.CustomerRepository.FindByEmail(request.CustomerEmail)
 
 	return result, nil
 }

@@ -57,6 +57,8 @@ func (service *MenuServiceImpl) CreateMenu(ctx echo.Context, request web.MenuCre
 		return nil, fmt.Errorf("Error when create : %s", err.Error())
 	}
 
+	result, _ = service.MenuRepository.FindByName(request.ItemName)
+
 	return result, nil
 }
 
@@ -68,9 +70,14 @@ func (service *MenuServiceImpl) UpdateMenu(ctx echo.Context, request web.MenuUpd
 	}
 
 	// Check if the menu exists
-	existingMenu, _ := service.MenuRepository.FindById(id)
-	if existingMenu == nil {
+	existingMenuId, _ := service.MenuRepository.FindById(id)
+	if existingMenuId == nil {
 		return nil, fmt.Errorf("Menu not found")
+	}
+
+	existingMenuName, _ := service.MenuRepository.FindByName(request.ItemName)
+	if existingMenuName != nil {
+		return nil, fmt.Errorf("Menu Name already exists")
 	}
 
 	// Convert request to domain
@@ -80,6 +87,8 @@ func (service *MenuServiceImpl) UpdateMenu(ctx echo.Context, request web.MenuUpd
 	if err != nil {
 		return nil, fmt.Errorf("Error when updating : %s", err.Error())
 	}
+
+	result, _ = service.MenuRepository.FindByName(request.ItemName)
 
 	return result, nil
 }

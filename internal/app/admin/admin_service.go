@@ -48,6 +48,8 @@ func (service *AdminServiceImpl) RegisterAdmin(ctx echo.Context, request web.Adm
 		return nil, fmt.Errorf("Error when register : %s", err.Error())
 	}
 
+	result, _ = service.AdminRepository.FindByUsername(request.Username)
+
 	return result, nil
 }
 
@@ -84,9 +86,14 @@ func (service *AdminServiceImpl) UpdateAdmin(ctx echo.Context, request web.Admin
 	}
 
 	// Check if the admin exists
-	existingAdmin, _ := service.AdminRepository.FindById(id)
-	if existingAdmin == nil {
+	existingAdminId, _ := service.AdminRepository.FindById(id)
+	if existingAdminId == nil {
 		return nil, fmt.Errorf("Admin not found")
+	}
+
+	existingAdminUsername, _ := service.AdminRepository.FindByUsername(request.Username)
+	if existingAdminUsername != nil {
+		return nil, fmt.Errorf("Username already exists")
 	}
 
 	// Convert request to domain
@@ -97,6 +104,8 @@ func (service *AdminServiceImpl) UpdateAdmin(ctx echo.Context, request web.Admin
 	if err != nil {
 		return nil, fmt.Errorf("Error when updating : %s", err.Error())
 	}
+
+	result, _ = service.AdminRepository.FindByUsername(request.Username)
 
 	return result, nil
 }

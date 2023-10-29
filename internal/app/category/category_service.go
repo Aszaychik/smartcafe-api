@@ -45,6 +45,11 @@ func (service *CategoryServiceImpl) CreateCategory(ctx echo.Context, request web
 		return nil, fmt.Errorf("Error when create : %s", err.Error())
 	}
 
+	result, err = service.CategoryRepository.FindById(int(result.ID))
+	if err != nil {
+		return nil, fmt.Errorf("Error when retrieve  : %s", err.Error())
+	}
+
 	return result, nil
 }
 
@@ -56,9 +61,14 @@ func (service *CategoryServiceImpl) UpdateCategory(ctx echo.Context, request web
 	}
 
 	// Check if the category exists
-	existingCategory, _ := service.CategoryRepository.FindById(id)
-	if existingCategory == nil {
+	existingCategoryId, _ := service.CategoryRepository.FindById(id)
+	if existingCategoryId == nil {
 		return nil, fmt.Errorf("Category not found")
+	}
+
+	existingCategoryName, _ := service.CategoryRepository.FindByName(request.CategoryName)
+	if existingCategoryName != nil {
+		return nil, fmt.Errorf("Category Name already exists")
 	}
 
 	// Convert request to domain
@@ -68,6 +78,8 @@ func (service *CategoryServiceImpl) UpdateCategory(ctx echo.Context, request web
 	if err != nil {
 		return nil, fmt.Errorf("Error when updating : %s", err.Error())
 	}
+
+	result, _ = service.CategoryRepository.FindByName(category.CategoryName)
 
 	return result, nil
 }
