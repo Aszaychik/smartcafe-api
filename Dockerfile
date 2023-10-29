@@ -8,7 +8,7 @@ WORKDIR /app
 COPY . .
 
 # Build the Go application
-RUN make run
+RUN make build
 
 # Expose the port that your API will run on
 EXPOSE 8080
