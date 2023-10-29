@@ -1,6 +1,7 @@
 package interfaces
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/domain/web"
 
@@ -34,5 +35,5 @@ type CustomerHandler interface {
 }
 
 type CustomerRoutes interface {
-	Customer()
+	Customer(config *config.AuthConfig)
 }

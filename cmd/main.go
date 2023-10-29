@@ -101,11 +101,11 @@ func main() {
 	feedbackRoutes := feedback.NewFeedbackRoutes(e, feedbackHandler)
 
 	// Set up routes
-	adminRoutes.Auth()
-	adminRoutes.Admin()
-	menuRoutes.Menu()
-	categoryRoutes.Category()
-	customerRoutes.Customer()
+	adminRoutes.Auth(&cfg.Auth)
+	adminRoutes.Admin(&cfg.Auth)
+	menuRoutes.Menu(&cfg.Auth)
+	categoryRoutes.Category(&cfg.Auth)
+	customerRoutes.Customer(&cfg.Auth)
 	orderRoutes.Order()
 	orderPaymentRoutes.OrderPayment()
 	feedbackRoutes.Feedback()

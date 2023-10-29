@@ -1,9 +1,11 @@
 package menu
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"aszaychik/smartcafe-api/internal/interfaces"
 
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 )
 
 type MenuRoutesImpl struct {
@@ -18,12 +20,16 @@ func NewMenuRoutes(e *echo.Echo, menuHandler interfaces.MenuHandler) interfaces.
 	}
 }
 
-func (mr *MenuRoutesImpl) Menu() {
+func (mr *MenuRoutesImpl) Menu(config *config.AuthConfig) {
 	menusGroup := mr.Echo.Group("menus")
-
-	menusGroup.POST("", mr.MenuHandler.CreateMenuHandler)
+	
 	menusGroup.GET("", mr.MenuHandler.GetMenusHandler)
 	menusGroup.GET("/:id", mr.MenuHandler.GetMenuHandler)
+
+	menusGroup.Use(middleware.JWTWithConfig(middleware.JWTConfig{
+		SigningKey: []byte([]byte(config.JWTSecret)),
+	}))
+	menusGroup.POST("", mr.MenuHandler.CreateMenuHandler)
 	menusGroup.PUT("/:id", mr.MenuHandler.UpdateMenuHandler)
 	menusGroup.PATCH("/:id", mr.MenuHandler.UploadImageMenuHandler)
 	menusGroup.DELETE("/:id", mr.MenuHandler.DeleteMenuHandler)

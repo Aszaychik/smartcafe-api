@@ -1,6 +1,7 @@
 package interfaces
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/domain/web"
 	"mime/multipart"
@@ -38,5 +39,5 @@ type MenuHandler interface {
 }
 
 type MenuRoutes interface {
-	Menu()
+	Menu(config *config.AuthConfig)
 }

@@ -5,6 +5,7 @@ type AppConfig struct {
 	Midtrans MidtransConfig
 	Barcode  BarcodeConfig
 	AWS      AWSConfig
+	Auth     AuthConfig
 }
 
 type MySQLConfig struct {
@@ -28,4 +29,9 @@ type AWSConfig struct {
 	AccessKeyId     string
 	SecretAccessKey string
 	BucketName      string
+}
+
+type AuthConfig struct {
+	XAPIKey   string
+	JWTSecret string
 }
