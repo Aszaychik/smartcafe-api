@@ -1,6 +1,7 @@
 package interfaces
 
 import (
+	"aszaychik/smartcafe-api/config"
 	"aszaychik/smartcafe-api/domain"
 	"aszaychik/smartcafe-api/domain/web"
 
@@ -35,6 +36,6 @@ type AdminHandler interface {
 }
 
 type AdminRoutes interface {
-	Auth()
+	Auth(config *config.AuthConfig)
 	Admin()
 }
