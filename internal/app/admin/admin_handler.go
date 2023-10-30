@@ -56,7 +56,7 @@ func (handler *AdminHandlerImpl) LoginAdminHandler(ctx echo.Context) error {
 			return res.StatusBadRequest(ctx, err)
 		}
 		
-		if strings.Contains(err.Error(), "Invalid email or password") {
+		if strings.Contains(err.Error(), "Invalid username or password") {
 			return res.StatusBadRequest(ctx, err)
 		}
 		

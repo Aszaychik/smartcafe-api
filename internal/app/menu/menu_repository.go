@@ -56,7 +56,7 @@ func (repository *MenuRepositoryImpl) FindById(id int) (*domain.Menu, error) {
 func (repository *MenuRepositoryImpl) FindByName(itemName string) (*domain.Menu, error) {
 	menu := domain.Menu{}
 
-	result := repository.DB.Where("item_name = ?", itemName).First(&menu)
+	result := repository.DB.Preload("Category").Where("item_name = ?", itemName).First(&menu)
 	if result.Error != nil {
 		return nil, result.Error
 	}
