@@ -15,14 +15,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus",
+							"raw": "{{base_url}}:{{port}}/menus",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"menus"
 							]
 						},
@@ -30,18 +28,20 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/v1/menus",
+									"raw": "http://aszychik.my.id:8080/menus",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"v1",
 										"menus"
 									]
 								}
@@ -52,47 +52,23 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success Retrieve a list of all available menus\",\r\n    \"data\" : [\r\n        {\r\n            \"id\": {{id}},\r\n            \"category_id\": 2,\r\n            \"item_name\": \"Americano\",\r\n            \"item_price\": 10000,\r\n            \"item_description\": \"Kopi pahit kesukaan mas fathir\",\r\n            \"item_image_url\": \"https://img.freepik.com/free-photo/glass-with-iced-coffee-table_23-2148937324.jpg?w=740&t=st=1697782213~exp=1697782813~hmac=f2cec4649f99ab549f89b5df0bf3c14c2204c09c2fd701885b83fc6d551f3a5c\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"category_id\": 1,\r\n            \"item_name\": \"Caffe Latte\",\r\n            \"item_price\": 10000,\r\n            \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n            \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n        }\r\n    ]\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "localhost:8080/api/v1/menus",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"menus"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
+									"value": "application/json; charset=UTF-8"
+								},
 								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:01:57 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1540"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot retrieve a list of all available menus\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get menus\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"item_name\": \"Ice Tea\",\n            \"item_price\": 4000,\n            \"item_description\": \"Minuman teh dingin yang menyegarkan dengan es batu.\",\n            \"item_image\": \"https://placewaifu.com/image/200\",\n            \"category_id\": 1,\n            \"category\": {\n                \"id\": 1,\n                \"category_name\": \"Tea\",\n                \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n            }\n        },\n        {\n            \"id\": 2,\n            \"item_name\": \"Milk Tea\",\n            \"item_price\": 5000,\n            \"item_description\": \"Minuman teh dengan tambahan susu, memberikan rasa yang lezat dan creamy.\",\n            \"item_image\": \"https://placewaifu.com/image/200\",\n            \"category_id\": 1,\n            \"category\": {\n                \"id\": 1,\n                \"category_name\": \"Tea\",\n                \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n            }\n        },\n        {\n            \"id\": 3,\n            \"item_name\": \"Americano\",\n            \"item_price\": 10000,\n            \"item_description\": \"Kopi pahit kesukaan mas fathir\",\n            \"item_image\": \"https://placewaifu.com/image/200\",\n            \"category_id\": 2,\n            \"category\": {\n                \"id\": 2,\n                \"category_name\": \"Coffee\",\n                \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\n            }\n        }\n    ]\n}"
 						}
 					]
 				},
@@ -112,14 +88,12 @@
 							"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Americano\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus",
+							"raw": "{{base_url}}:{{port}}/menus",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"menus"
 							]
 						},
@@ -127,7 +101,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -148,14 +122,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus",
+									"raw": "http://aszychik.my.id:8080/menus",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"menus"
 									]
 								}
@@ -166,17 +141,26 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 05:49:12 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "288"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Menu item created successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 2,\r\n        \"item_name\": \"Americano\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n    }\r\n}"
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Success to create menu\",\n    \"data\": {\n        \"id\": 3,\n        \"item_name\": \"Americano\",\n        \"item_price\": 10000,\n        \"item_description\": \"Kopi pahit kesukaan mas fathir\",\n        \"item_image\": \"https://placewaifu.com/image/200\",\n        \"category_id\": 2,\n        \"category\": {\n            \"id\": 2,\n            \"category_name\": \"Coffee\",\n            \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Token Missing",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -197,63 +181,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus",
+									"raw": "http://aszychik.my.id:8080/menus",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
-										"menus"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot create menu item\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
-						},
-						{
-							"name": "Bad Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"item_name\": \"\",\r\n    \"item_price\": -10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/menus",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
 										"menus"
 									]
 								}
@@ -271,7 +207,125 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\" : [\n                \"Category ID is required\",\n                \"Item name cannot be empty\",\n                \"Item price must be a positive number\"\n    ]\n}"
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/menus",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"menus"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 05:48:10 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "105"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field ItemName, tag required\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Already Exists",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Americano\",\r\n    \"item_price\": 100000,\r\n    \"item_description\": \"Kopi pahit kesukaan mas fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/menus",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"menus"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 05:53:44 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 409,\n    \"message\": \"Menu Name already exists\",\n    \"data\": null\n}"
 						}
 					]
 				},
@@ -294,14 +348,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"raw": "{{base_url}}:{{port}}/menus/{{id}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"menus",
 								"{{id}}"
 							]
@@ -310,7 +362,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [
@@ -325,14 +377,15 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "http://aszychik.my.id:8080/menus/1",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"menus",
 										"1"
 									]
@@ -344,58 +397,23 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success retrieve information about a specific menu item\",\r\n    \"data\" : {\r\n        \"id\": {{id}},\r\n        \"category_id\": 2,\r\n        \"item_name\": \"Americano\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi pahit kesukaan mas fathir\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/glass-with-iced-coffee-table_23-2148937324.jpg?w=740&t=st=1697782213~exp=1697782813~hmac=f2cec4649f99ab549f89b5df0bf3c14c2204c09c2fd701885b83fc6d551f3a5c\"\r\n    }\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
+									"value": "application/json; charset=UTF-8"
 								},
-								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"menus",
-										"1"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
 								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:02:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "543"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve information about a specific menu item\",\n    \"errors\": \"Internal Server Error\"\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get menu\",\n    \"data\": {\n        \"id\": 1,\n        \"item_name\": \"Ice Tea\",\n        \"item_price\": 4000,\n        \"item_description\": \"Minuman teh dingin yang menyegarkan dengan es batu.\",\n        \"item_image\": \"https://placewaifu.com/image/200\",\n        \"category_id\": 1,\n        \"category\": {\n            \"id\": 1,\n            \"category_name\": \"Tea\",\n            \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n        }\n    }\n}"
 						},
 						{
 							"name": "Not Found",
@@ -413,16 +431,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "{{base_url}}:{{port}}/menus/404",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
 										"menus",
-										"1"
+										"404"
 									]
 								}
 							},
@@ -439,7 +455,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\"\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Menu not found\",\r\n    \"data\": null\r\n}"
 						}
 					]
 				},
@@ -452,21 +468,19 @@
 							"mode": "formdata",
 							"formdata": [
 								{
-									"key": "image_url",
+									"key": "item_image",
 									"type": "file",
-									"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+									"src": "/C:/Users/USER/OneDrive/Pictures/Anime/ptilopsis.png"
 								}
 							]
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"raw": "{{base_url}}:{{port}}/menus/{{id}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"menus",
 								"{{id}}"
 							]
@@ -475,7 +489,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -483,21 +497,22 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "image_url",
+											"key": "item_image",
 											"type": "file",
-											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/ptilopsis.png"
 										}
 									]
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "http://aszychik.my.id:8080/menus/1",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"menus",
 										"1"
 									]
@@ -509,17 +524,26 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:37:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "669"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Menu item image upload successfully\"\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 1,\r\n        \"item_name\": \"Caffe Latte\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n    }\r\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to update menu\",\n    \"data\": {\n        \"id\": 1,\n        \"item_name\": \"Ice Tea\",\n        \"item_price\": 4000,\n        \"item_description\": \"Minuman teh dingin yang menyegarkan dengan es batu.\",\n        \"item_image\": \"https://smartcafebucket.s3.ap-southeast-1.amazonaws.com/menu/images/2023-10-30%2006%3A37%3A29.885865085%20%2B0000%20UTC%20m%3D%2B73.470448659-ptilopsis.png\",\n        \"category_id\": 1,\n        \"category\": {\n            \"id\": 1,\n            \"category_name\": \"Tea\",\n            \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n        }\n    }\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Not Found",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -527,28 +551,24 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "image_url",
+											"key": "item_image",
 											"type": "file",
-											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/ptilopsis.png"
 										}
 									]
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "{{base_url}}:{{port}}/menus/404",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
 										"menus",
-										"1"
+										"404"
 									]
 								}
 							},
-							"status": "Internal Server Error",
-							"code": 500,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -560,10 +580,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot upload menu item image\",\n    \"errors\": \"Internal Server Error\"\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Error finding menu: record not found\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Bad Request",
+							"name": "Token Missing",
 							"originalRequest": {
 								"method": "PATCH",
 								"header": [],
@@ -571,24 +591,21 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "image_url",
+											"key": "item_image",
 											"type": "file",
-											"src": [],
-											"disabled": true
+											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Onikata Kayoko(potrait).png"
 										}
 									]
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "{{base_url}}:{{port}}/menus/{{id}}",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
 										"menus",
-										"1"
+										"{{id}}"
 									]
 								}
 							},
@@ -605,51 +622,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\": \"image url form cannot be empty\"\n}"
-						},
-						{
-							"name": "Not Found",
-							"originalRequest": {
-								"method": "PATCH",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "image_url",
-											"type": "file",
-											"src": "/C:/Users/USER/OneDrive/Pictures/Anime/Blue Archive Images/Others/ClanChat_Emoji_08_Jp.png"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"menus",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\"\n}"
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
 				},
@@ -669,14 +642,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+							"raw": "{{base_url}}:{{port}}/menus/{{id}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"menus",
 								"{{id}}"
 							]
@@ -685,7 +656,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [
@@ -700,185 +671,15 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "http://aszychik.my.id:8080/menus/1",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
-										"menus",
-										"1"
-									]
-								}
-							},
-							"status": "No Content",
-							"code": 204,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 204,\r\n    \"message\": \"Menu item deleted successfully\"\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"menus",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot delete menu item\",\n    \"errors\": \"Internal Server Error\"\n}"
-						},
-						{
-							"name": "Not Found",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"menus",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Not Found",
-							"code": 404,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested manu item does not exist\"\n}"
-						}
-					]
-				},
-				{
-					"name": "Update Menu by ID",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}"
-						},
-						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
-							"host": [
-								"{{base_url}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"api",
-								"{{api_ver}}",
-								"menus",
-								"{{id}}"
-							]
-						},
-						"description": "Update information for a specific menu item"
-					},
-					"response": [
-						{
-							"name": "Success",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
 										"menus",
 										"1"
 									]
@@ -890,69 +691,28 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Menu item updated successfully\",\r\n    \"errors\": null,\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_id\": 1,\r\n        \"item_name\": \"Caffe Latte\",\r\n        \"item_price\": 10000,\r\n        \"item_description\": \"Kopi susu manis bikin diabetes\",\r\n        \"item_image_url\": \"https://img.freepik.com/free-photo/top-view-hot-espresso-with-brown-coffee-seeds-brown-wooden-desk-coffee-cup-drink_140725-28168.jpg?w=740&t=st=1697782387~exp=1697782987~hmac=bdef1dccb01a639010bf522ffc09326330a89e69b2680bae825e39fcce27e2d4\"\r\n    }\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"value": "application/json; charset=UTF-8"
 								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"menus",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
 								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:05:53 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot update menu item\",\n    \"errors\": \"Internal Server Error\",\n    \"data\": null\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to delete menu\",\n    \"data\": null\n}"
 						},
 						{
 							"name": "Not Found",
 							"originalRequest": {
-								"method": "PUT",
+								"method": "DELETE",
 								"header": [
 									{
 										"key": "Content-Type",
@@ -962,24 +722,20 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}"
+									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/menus/{{id}}",
+									"raw": "{{base_url}}:{{port}}/menus/404",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"menus",
-										"{{id}}"
+										"404"
 									]
 								}
 							},
-							"status": "Not Found",
-							"code": 404,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -991,40 +747,32 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Menu not found\",\n    \"errors\": \"The requested menu item does not exist\",\n    \"data\": null\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Menu not found\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Bad Request",
+							"name": "Token Missing",
 							"originalRequest": {
-								"method": "PUT",
+								"method": "DELETE",
 								"header": [
 									{
 										"key": "Content-Type",
-										"name": "Content-Type",
 										"value": "application/json",
 										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"item_name\": \"\",\r\n    \"item_price\": -10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
+									"raw": ""
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/menus/1",
+									"raw": "{{base_url}}:{{port}}/menus/{{id}}",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
 										"menus",
-										"1"
+										"{{id}}"
 									]
 								}
 							},
@@ -1041,9 +789,226 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        \"Category ID is required\",\n        \"Item name cannot be empty\",\n        \"Item price must be a positive number\"\n    ],\n    \"data\": null\n}"
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
+				},
+				{
+					"name": "Update Menu by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/menus/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"menus",
+								"4"
+							]
+						},
+						"description": "Update information for a specific menu item"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 2,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/menus/1",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"menus",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:03:26 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "290"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to update menu\",\n    \"data\": {\n        \"id\": {{id}},\n        \"item_name\": \"Caffe Latte\",\n        \"item_price\": 10000,\n        \"item_description\": \"Kopi susu manis bikin diabetes\",\n        \"item_image\": \"https://placewaifu.com/image/200\",\n        \"category_id\": 2,\n        \"category\": {\n            \"id\": 2,\n            \"category_name\": \"Coffee\",\n            \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/menus/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"menus",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Menu not found\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_id\": 1,\r\n    \"item_name\": \"Caffe Latte\",\r\n    \"item_price\": 10000,\r\n    \"item_description\": \"Kopi susu manis bikin diabetes\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/menus/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"menus",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -1056,14 +1021,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+							"raw": "{{base_url}}:{{port}}/categories",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"categories"
 							]
 						},
@@ -1071,19 +1034,20 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/api/v1/categories",
+									"raw": "http://aszychik.my.id:8080/categories",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"categories"
 									]
 								}
@@ -1101,28 +1065,26 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success Retrieve a list of all available category\",\r\n    \"data\" : [\r\n        {\r\n            \"id\": {{id}},\r\n            \"category_name\": \"Coffee\",\r\n            \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"category_name\": \"Espresso\",\r\n            \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n        }\r\n    ]\r\n}"
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to get categories\",\r\n    \"data\": [\r\n        {\r\n            \"id\": 1,\r\n            \"category_name\": \"Tea\",\r\n            \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"category_name\": \"Coffee\",\r\n            \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\r\n        },\r\n        {\r\n            \"id\": 3,\r\n            \"category_name\": \"Bakery\",\r\n            \"category_description\": \"Roti dan kue adalah produk panggang yang dihasilkan dari adonan tepung terigu, ragi, gula, dan bahan lainnya. Kategori ini meliputi berbagai jenis roti, kue, dan pastry dengan tekstur yang lembut dan rasa yang beragam, seperti croissant, donat, dan kue tart.\"\r\n        }\r\n    ]\r\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Token Missing",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"raw": "{{base_url}}:{{port}}/categories",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories"
 									]
 								}
 							},
-							"status": "Internal Server Error",
-							"code": 500,
+							"status": "Bad Request",
+							"code": 400,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1134,7 +1096,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve a list of all available category\",\n    \"errors\": \"Internal Server Error\"\n}"
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
 				},
@@ -1151,17 +1113,15 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}"
+							"raw": "{\r\n    \"category_name\": \"Bakery\",\r\n    \"category_description\": \"Roti dan kue adalah produk panggang yang dihasilkan dari adonan tepung terigu, ragi, gula, dan bahan lainnya. Kategori ini meliputi berbagai jenis roti, kue, dan pastry dengan tekstur yang lembut dan rasa yang beragam, seperti croissant, donat, dan kue tart.\"\r\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+							"raw": "{{base_url}}:{{port}}/categories",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"categories"
 							]
 						},
@@ -1169,7 +1129,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1182,7 +1142,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1190,14 +1150,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/categories",
+									"raw": "http://aszychik.my.id:8080/categories",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"categories"
 									]
 								}
@@ -1215,10 +1176,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Category created successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Coffee\",\r\n        \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n    }\r\n}"
+							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Success to create category\",\r\n    \"data\": {\r\n        \"id\": 2,\r\n        \"category_name\": \"Coffee\",\r\n        \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\r\n    }\r\n}"
 						},
 						{
-							"name": "Internal  Server Error",
+							"name": "Already Exists",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1231,7 +1192,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1239,20 +1200,18 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"raw": "{{base_url}}:{{port}}/categories",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories"
 									]
 								}
 							},
-							"status": "Internal Server Error",
-							"code": 500,
+							"status": "Conflict",
+							"code": 409,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1264,10 +1223,10 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot create category\",\n    \"errors\": \"Internal Server Error\"\n}"
+							"body": "{\r\n    \"code\": 409,\r\n    \"message\": \"Category Name already exists\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Bad Request",
+							"name": "Validation Failed",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -1280,7 +1239,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_description\": \"\"\r\n}",
+									"raw": "{\r\n    \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1288,14 +1247,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories",
+									"raw": "{{base_url}}:{{port}}/categories",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories"
 									]
 								}
@@ -1313,7 +1270,54 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n            \"Category name is required\",\r\n            \"Category description cannot be empty\"\r\n    ]\r\n}"
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation failed: Validation error on field CategoryName, tag required\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Bakery\",\r\n    \"category_description\": \"Roti dan kue adalah produk panggang yang dihasilkan dari adonan tepung terigu, ragi, gula, dan bahan lainnya. Kategori ini meliputi berbagai jenis roti, kue, dan pastry dengan tekstur yang lembut dan rasa yang beragam, seperti croissant, donat, dan kue tart.\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
 						}
 					]
 				},
@@ -1323,14 +1327,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"raw": "{{base_url}}:{{port}}/categories/{{id}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"categories",
 								"{{id}}"
 							]
@@ -1339,19 +1341,20 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/api/v1/categories/1",
+									"raw": "http://aszychik.my.id:8080/categories/1",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"categories",
 										"1"
 									]
@@ -1370,41 +1373,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success retrieve information about a specific category\",\r\n    \"data\" : {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Coffee\",\r\n        \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n    }\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"categories",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot retrieve information about a specific category\",\n    \"errors\": \"Internal Server Error\"\n}"
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to get category\",\r\n    \"data\": {\r\n        \"id\": 1,\r\n        \"category_name\": \"Tea\",\r\n        \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\r\n    }\r\n}"
 						},
 						{
 							"name": "Not Found",
@@ -1412,16 +1381,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "{{base_url}}:{{port}}/categories/404",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories",
-										"{{id}}"
+										"404"
 									]
 								}
 							},
@@ -1438,7 +1405,39 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Category not found\",\n    \"errors\": \"The requested category does not exist\"\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Category not found\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
 				},
@@ -1448,42 +1447,41 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"raw": "{{base_url}}:{{port}}/categories/4",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"categories",
-								"{{id}}"
+								"4"
 							]
 						},
 						"description": "Delete a specific category"
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "localhost:8080/api/v1/categories/1",
+									"raw": "http://aszychik.my.id:8080/categories/4",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"categories",
-										"1"
+										"4"
 									]
 								}
 							},
-							"status": "No Content",
-							"code": 204,
+							"status": "OK",
+							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1495,41 +1493,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 204,\n    \"message\": \"Category deleted successfully\"\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "DELETE",
-								"header": [],
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"categories",
-										"{{id}}"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot delete category\",\r\n    \"errors\": \"Internal Server Error\"\r\n}"
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to delete category\",\r\n    \"data\": null\r\n}"
 						},
 						{
 							"name": "Not Found",
@@ -1537,21 +1501,17 @@
 								"method": "DELETE",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "{{base_url}}:{{port}}/categories/404",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories",
-										"{{id}}"
+										"404"
 									]
 								}
 							},
-							"status": "Not Found",
-							"code": 404,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1563,7 +1523,39 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Category not found\",\n    \"errors\": \"The requested category does not exist\"\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Category not found\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
 				},
@@ -1574,7 +1566,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+							"raw": "{\r\n    \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1582,14 +1574,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+							"raw": "{{base_url}}:{{port}}/categories/{{id}}",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"categories",
 								"{{id}}"
 							]
@@ -1598,13 +1588,13 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Espresso\",\r\n    \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n}",
+									"raw": "{\r\n    \"category_description\": \"GAS NGERJAR DEADLINE\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1612,21 +1602,20 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/categories/1",
+									"raw": "http://aszychik.my.id:8080/categories/2",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"categories",
-										"1"
+										"2"
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1638,16 +1627,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Category updated successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"category_name\": \"Espresso\",\r\n        \"category_description\": \"Entah apa bedanya ama kopi???\"\r\n    }\r\n}"
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to update category\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Already Exists",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"GAS NGERJAR DEADLINE\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1655,21 +1644,19 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "{{base_url}}:{{port}}/categories/2",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories",
-										"{{id}}"
+										"2"
 									]
 								}
 							},
-							"status": "Internal Server Error",
-							"code": 500,
+							"status": "Conflict",
+							"code": 409,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
@@ -1681,16 +1668,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot update category\",\n    \"errors\": \"Internal Server Error\",\n    \"data\": null\n}"
+							"body": "{\r\n    \"code\": 409,\r\n    \"message\": \"Category Name already exists\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Not Found",
+							"name": "Not  Found",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"GAS NGERJAR DEADLINE\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1698,16 +1685,14 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "{{base_url}}:{{port}}/categories/404",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories",
-										"{{id}}"
+										"404"
 									]
 								}
 							},
@@ -1724,16 +1709,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Category not found\",\r\n    \"errors\": \"The requested category does not exist\",\r\n    \"data\": null\r\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Category not found\",\r\n    \"data\": null\r\n}"
 						},
 						{
-							"name": "Bad Request",
+							"name": "Validation Failed",
 							"originalRequest": {
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"Kopi minuman mempercepat tipes\"\r\n}",
+									"raw": "{\r\n    \"category_description\": \"GAS NGERJAR DEADLINE\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -1741,14 +1726,12 @@
 									}
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/categories/{{id}}",
+									"raw": "{{base_url}}:{{port}}/categories/{{id}}",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"categories",
 										"{{id}}"
 									]
@@ -1767,9 +1750,80 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n            \"Category name is required\",\r\n            \"Category description cannot be empty\"\r\n    ]\r\n}"
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation failed: Validation error on field CategoryName, tag min\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category_name\": \"Coffee\",\r\n    \"category_description\": \"GAS NGERJAR DEADLINE\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/categories/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"categories",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
 						}
 					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -1789,14 +1843,12 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers",
+							"raw": "{{base_url}}:{{port}}/customers",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"customers"
 							]
 						},
@@ -1804,19 +1856,24 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
-									"raw": "localhost:8080/api/v1/customers",
+									"raw": "http://aszychik.my.id:8080/customers",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"customers"
 									]
 								}
@@ -1827,17 +1884,26 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:51:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "212"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success Retrieve a list of all available customers\",\r\n    \"data\" : [\r\n        {\r\n            \"id\": {{id}},\r\n            \"customer_email\": {{customer_name}},\r\n            \"customer_name\": {{customer_name}}\r\n        },\r\n        {\r\n            \"id\": 2,\r\n            \"customer_email\": \"agoeslmg1967@gmail.com\",\r\n            \"customer_name\": \"agoes budi satriya\"\r\n        }\r\n    ]\r\n}"
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get customers\",\n    \"data\": [\n        {\n            \"id\": 1,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"aszaychik@gmail.com\"\n        },\n        {\n            \"id\": 4,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"1aszaychik@gmail.com\"\n        }\n    ]\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Token Missing",
 							"originalRequest": {
 								"method": "GET",
 								"header": [],
@@ -1846,171 +1912,12 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers",
+									"raw": "{{base_url}}:{{port}}/customers",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
-										"customers"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot retrieve a list of all available customers\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
-						}
-					]
-				},
-				{
-					"name": "Create Customer by ID",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"customer_email\": {{customer_email}},\r\n    \"customer_name\": {{customer_name}}\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers",
-							"host": [
-								"{{base_url}}"
-							],
-							"port": "{{port}}",
-							"path": [
-								"api",
-								"{{api_ver}}",
-								"customers"
-							]
-						},
-						"description": "Add a new customer to the system"
-					},
-					"response": [
-						{
-							"name": "Success",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"customer_email\": aszaychik@gmail.com,\r\n    \"customer_name\": aszaychik\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/customers",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"customers"
-									]
-								}
-							},
-							"status": "Created",
-							"code": 201,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Customer item created successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"customer_email\": {{customer_email}},\r\n        \"customer_name\": {{customer_name}}\r\n    }\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"customer_email\": {{customer_email}},\r\n    \"customer_name\": {{customer_name}}\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
-										"customers"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot create customer\",\r\n    \"errors\" : \"Internal Server Error\"\r\n}"
-						},
-						{
-							"name": "Bad Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"customer_name\": \"\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers",
-									"host": [
-										"{{base_url}}"
-									],
-									"port": "{{port}}",
-									"path": [
-										"api",
-										"{{api_ver}}",
 										"customers"
 									]
 								}
@@ -2021,103 +1928,127 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:49:06 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation error\",\n    \"errors\": [\n        \"Customer email is required\",\n        \"Customer name cannot be empty\"\n    ]\n}"
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
 						}
 					]
 				},
 				{
-					"name": "Search Customer by Name",
+					"name": "Create Customer by ID",
 					"request": {
-						"method": "GET",
+						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_email\": \"{{customer_email}}\",\r\n    \"customer_name\": \"{{customer_name}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers?customer_name={{customer_name}}",
+							"raw": "{{base_url}}:{{port}}/customers",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"customers"
-							],
-							"query": [
-								{
-									"key": "customer_name",
-									"value": "{{customer_name}}"
-								}
 							]
 						},
-						"description": "Search customer by name"
+						"description": "Add a new customer to the system"
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "Created",
 							"originalRequest": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_email\": \"fathir@gmail.com\",\r\n    \"customer_name\": \"fathir\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "localhost:8080/api/v1/customers?customer_name=aszaychik",
+									"raw": "http://aszychik.my.id:8080/customers",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"customers"
-									],
-									"query": [
-										{
-											"key": "customer_name",
-											"value": "aszaychik"
-										}
 									]
 								}
 							},
-							"status": "OK",
-							"code": 200,
+							"status": "Created",
+							"code": 201,
 							"_postman_previewlanguage": "json",
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:41:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success retrieve information about customer name\",\r\n    \"data\" : {\r\n        \"id\": {{id}},\r\n        \"customer_email\": {{customer_email}},\r\n        \"customer_name\": {{customer_name}}\r\n    }\r\n}"
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Success to create customer\",\n    \"data\": null\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Already Exists",
 							"originalRequest": {
-								"method": "GET",
+								"method": "POST",
 								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_email\": \"{{customer_email}}\",\r\n    \"customer_name\": \"{{customer_name}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers?customer_name={{customer_name}}",
+									"raw": "{{base_url}}:{{port}}/customers",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
 										"customers"
-									],
-									"query": [
-										{
-											"key": "customer_name",
-											"value": "{{customer_name}}"
-										}
 									]
 								}
 							},
@@ -2127,14 +2058,137 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:49:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "164"
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot retrieve information about customer\",\r\n    \"errors\": \"Internal Server Error\"\r\n}"
+							"body": "{\n    \"code\": 500,\n    \"message\": \"Error when create : Error 1062 (23000): Duplicate entry 'aszaychik@gmail.com' for key 'customers.idx_customers_customer_email'\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_name\": \"{{customer_name}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:41:42 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "110"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field CustomerEmail, tag required\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Customer by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/customers/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"customers",
+								"{{id}}"
+							]
+						},
+						"description": "Search customer by name"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://aszychik.my.id:8080/customers/1",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:43:16 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "132"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get customer\",\n    \"data\": {\n        \"id\": 1,\n        \"customer_name\": \"aszaychik\",\n        \"customer_email\": \"aszaychik@gmail.com\"\n    }\n}"
 						},
 						{
 							"name": "Not Found",
@@ -2142,21 +2196,14 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/customers?customer_name={{customer_name}}",
+									"raw": "{{base_url}}:{{port}}/customers/404",
 									"host": [
 										"{{base_url}}"
 									],
 									"port": "{{port}}",
 									"path": [
-										"api",
-										"{{api_ver}}",
-										"customers"
-									],
-									"query": [
-										{
-											"key": "customer_name",
-											"value": "{{customer_name}}"
-										}
+										"customers",
+										"404"
 									]
 								}
 							},
@@ -2166,16 +2213,474 @@
 							"header": [
 								{
 									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:43:36 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
 								}
 							],
 							"cookie": [],
-							"body": "{\n    \"code\": 404,\n    \"message\": \"Customer not found\",\n    \"errors\": \"The requested customer name does not exist\"\n}"
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Customer not found\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:50:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
 						}
 					]
+				},
+				{
+					"name": "Update Customer by  Id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_email\": \"test@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/customers/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"customers",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_email\": \"test@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/customers/2",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:46:46 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to update customer\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"404"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:45:18 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field CustomerEmail, tag email\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:45:04 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field CustomerEmail, tag email\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_email\": \"test@gmail.com\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:50:43 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Customer by Id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/customers/2",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"customers",
+								"2"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://aszychik.my.id:8080/customers/2",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:48:28 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to delete customer\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:48:11 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Customer not found\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/customers/2",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"customers",
+										"2"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:51:07 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
 				}
 			]
 		},
@@ -2195,7 +2700,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}}\r\n}",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2203,14 +2708,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/auth/register",
+							"raw": "{{base_url}}:{{port}}/auth/register",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"auth",
 								"register"
 							]
@@ -2219,7 +2722,7 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "Created",
 							"originalRequest": {
 								"method": "POST",
 								"header": [
@@ -2227,17 +2730,11 @@
 										"key": "x-api-key",
 										"value": "kayokoonikata",
 										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"raw": "{\r\n    \"username\": \"admin2\",\r\n    \"password\": \"password\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2245,14 +2742,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/auth/register",
+									"raw": "http://aszychik.my.id:8080/auth/register",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"auth",
 										"register"
 									]
@@ -2271,117 +2769,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Register successfully\",\r\n    \"data\": {\r\n        \"id\": {{id}},\r\n        \"username\": {{username}}\r\n    }\r\n}"
-						},
-						{
-							"name": "Internal Server Error",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "x-api-key",
-										"value": "kayokoonikata",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/auth/register",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"auth",
-										"register"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\n    \"code\": 500,\n    \"message\": \"Something happen cannot register\",\n    \"errors\": \"Internal Server Error\"\n}"
-						},
-						{
-							"name": "Bad Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "x-api-key",
-										"value": "kayokoonikata",
-										"type": "text"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": \"\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/auth/register",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
-										"auth",
-										"register"
-									]
-								}
-							},
-							"status": "Bad Request",
-							"code": 400,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n                \"Username is required\",\r\n                \"Password cannot be empty\"\r\n    ]\r\n}"
+							"body": "{\r\n    \"code\": 201,\r\n    \"message\": \"Success to create admin\",\r\n    \"data\": {\r\n        \"ID\": 2,\r\n        \"CreatedAt\": \"2023-10-30T05:21:24.049Z\",\r\n        \"UpdatedAt\": \"2023-10-30T05:21:24.049Z\",\r\n        \"DeletedAt\": null,\r\n        \"username\": \"admin2\",\r\n        \"password\": \"$2a$10$GU3v8WEWzLvipLACkANU/.dLPJKapFfcw2UAbOebZiF9ronLnQf4e\"\r\n    }\r\n}"
 						},
 						{
 							"name": "Unauthorized",
@@ -2389,15 +2777,15 @@
 								"method": "POST",
 								"header": [
 									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text",
+										"disabled": true
 									}
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"raw": "{\r\n    \"username\": \"{{username}}2\",\r\n    \"password\": \"{{password}}2\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2405,14 +2793,12 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/auth/register",
+									"raw": "{{base_url}}:{{port}}/auth/register",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
 										"auth",
 										"register"
 									]
@@ -2431,18 +2817,78 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 401,\r\n    \"message\": \"Unauthorized cannot register\",\r\n    \"errors\": \"Header x-api-key cannot be empty\"\r\n}"
+							"body": "{\r\n    \"error\": \"Unauthorized\"\r\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "x-api-key",
+										"value": "{{x-api-key}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\r\n    \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/auth/register",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation failed: Validation error on field Username, tag required\",\r\n    \"data\": null\r\n}"
 						}
 					]
 				},
 				{
 					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var token = jsonData.data.token;\r",
+									"pm.environment.set(\"token\", token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": {{username}},\r\n    \"password\": {{password}}\r\n}",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -2450,14 +2896,12 @@
 							}
 						},
 						"url": {
-							"raw": "{{base_url}}:{{port}}/api/{{api_ver}}/auth/login",
+							"raw": "{{base_url}}:{{port}}/auth/login",
 							"host": [
 								"{{base_url}}"
 							],
 							"port": "{{port}}",
 							"path": [
-								"api",
-								"{{api_ver}}",
 								"auth",
 								"login"
 							]
@@ -2466,13 +2910,13 @@
 					},
 					"response": [
 						{
-							"name": "Success",
+							"name": "OK",
 							"originalRequest": {
 								"method": "POST",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"password\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2480,14 +2924,15 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/auth/login",
+									"raw": "http://aszychik.my.id:8080/auth/login",
+									"protocol": "http",
 									"host": [
-										"localhost"
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
 										"auth",
 										"login"
 									]
@@ -2506,23 +2951,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Login Successful\",\r\n    \"data\": {\r\n        \"token\": {{token}},\r\n        \"username\": {{username}}\r\n    }\r\n}"
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to login admin\",\r\n    \"data\": {\r\n        \"username\": \"admin\",\r\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdXRob3JpemVkIjp0cnVlLCJleHAiOjE2OTg2NDY5MjIsImlkIjoxLCJ1c2VybmFtZSI6ImFkbWluIn0.6zPFAGmbd8x3d7ZI8ZREELcj--9B2peObd-oIqYqarI\"\r\n    }\r\n}"
 						},
 						{
-							"name": "Internal Server Error",
+							"name": "Validation Failed",
 							"originalRequest": {
 								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": admin,\r\n    \"password\": password\r\n}",
+									"raw": "{\r\n    \"username\": \"{{username}}\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2530,64 +2968,12 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/auth/login",
+									"raw": "{{base_url}}:{{port}}/auth/login",
 									"host": [
-										"localhost"
+										"{{base_url}}"
 									],
-									"port": "8080",
+									"port": "{{port}}",
 									"path": [
-										"api",
-										"v1",
-										"auth",
-										"login"
-									]
-								}
-							},
-							"status": "Internal Server Error",
-							"code": 500,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"name": "Content-Type",
-									"description": "",
-									"type": "text"
-								}
-							],
-							"cookie": [],
-							"body": "{\r\n    \"code\": 500,\r\n    \"message\": \"Something happen cannot login\",\r\n    \"errors\": \"Internal Server Error\"\r\n}"
-						},
-						{
-							"name": "Bad Request",
-							"originalRequest": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"password\": \"\"\r\n}",
-									"options": {
-										"raw": {
-											"language": "json"
-										}
-									}
-								},
-								"url": {
-									"raw": "localhost:8080/api/v1/auth/login",
-									"host": [
-										"localhost"
-									],
-									"port": "8080",
-									"path": [
-										"api",
-										"v1",
 										"auth",
 										"login"
 									]
@@ -2606,23 +2992,16 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation error\",\r\n    \"errors\" : [\r\n                \"Username is required\",\r\n                \"Password cannot be empty\"\r\n    ]\r\n}"
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation failed: Validation error on field Password, tag required\",\r\n    \"data\": null\r\n}"
 						},
 						{
 							"name": "Invalid",
 							"originalRequest": {
 								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
+								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"username\": \"random shit\",\r\n    \"password\": \"\"\r\n}",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}a\"\r\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -2630,16 +3009,1210 @@
 									}
 								},
 								"url": {
-									"raw": "localhost:8080/api/v1/auth/login",
+									"raw": "{{base_url}}:{{port}}/auth/login",
 									"host": [
-										"localhost"
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Invalid username or password\",\r\n    \"data\": null\r\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "Check Order by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/orders/404",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"orders",
+								"404"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/orders/8",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
 									],
 									"port": "8080",
 									"path": [
-										"api",
-										"v1",
-										"auth",
-										"login"
+										"orders",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:59:11 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get order\",\n    \"data\": {\n        \"id\": 8,\n        \"customer_id\": 1,\n        \"seat_number\": 1,\n        \"wifi_access_url\": \"https://smartcafebucket.s3.ap-southeast-1.amazonaws.com/wifi-accesses/aszaychik-wifi-access-8.png\",\n        \"total_price\": 55000,\n        \"order_status\": \"success\",\n        \"order_date\": \"2023-10-30T07:48:34Z\",\n        \"customer\": {\n            \"id\": 1,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"aszaychik@gmail.com\"\n        },\n        \"items\": [\n            {\n                \"id\": 22,\n                \"order_id\": 8,\n                \"item_id\": 1,\n                \"quantity\": 5,\n                \"item\": {\n                    \"id\": 1,\n                    \"item_name\": \"Ice Tea\",\n                    \"item_price\": 4000,\n                    \"item_description\": \"Minuman teh dingin yang menyegarkan dengan es batu.\",\n                    \"item_image\": \"https://smartcafebucket.s3.ap-southeast-1.amazonaws.com/menu/images/2023-10-30%2006%3A37%3A29.885865085%20%2B0000%20UTC%20m%3D%2B73.470448659-ptilopsis.png\",\n                    \"category_id\": 1,\n                    \"category\": {\n                        \"id\": 1,\n                        \"category_name\": \"Tea\",\n                        \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n                    }\n                }\n            },\n            {\n                \"id\": 23,\n                \"order_id\": 8,\n                \"item_id\": 2,\n                \"quantity\": 3,\n                \"item\": {\n                    \"id\": 2,\n                    \"item_name\": \"Milk Tea\",\n                    \"item_price\": 5000,\n                    \"item_description\": \"Minuman teh dengan tambahan susu, memberikan rasa yang lezat dan creamy.\",\n                    \"item_image\": \"https://placewaifu.com/image/200\",\n                    \"category_id\": 1,\n                    \"category\": {\n                        \"id\": 1,\n                        \"category_name\": \"Tea\",\n                        \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n                    }\n                }\n            },\n            {\n                \"id\": 24,\n                \"order_id\": 8,\n                \"item_id\": 3,\n                \"quantity\": 2,\n                \"item\": {\n                    \"id\": 3,\n                    \"item_name\": \"Americano\",\n                    \"item_price\": 10000,\n                    \"item_description\": \"Kopi pahit kesukaan mas fathir\",\n                    \"item_image\": \"https://placewaifu.com/image/200\",\n                    \"category_id\": 2,\n                    \"category\": {\n                        \"id\": 2,\n                        \"category_name\": \"Coffee\",\n                        \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\n                    }\n                }\n            }\n        ],\n        \"payment\": {\n            \"id\": \"ORDER-1-08d5da1e-3557-4f83-a514-e556e5583d54\",\n            \"order_id\": 8,\n            \"payment_method\": \"bank_transfer\",\n            \"payment_status\": \"success\",\n            \"payment_date\": \"2023-10-30T07:48:48Z\",\n            \"payment_url\": \"https://app.sandbox.midtrans.com/snap/v3/redirection/b287b9f6-9fb3-47ba-8caf-76d3bd195423\"\n        },\n        \"review\": {\n            \"id\": 4,\n            \"order_id\": 8,\n            \"customer_id\": 1,\n            \"feedback_text\": \"update test\",\n            \"feedback_rating\": 10,\n            \"feedback_date\": \"2023-10-30T07:56:00Z\",\n            \"customer\": {\n                \"id\": 1,\n                \"customer_name\": \"aszaychik\",\n                \"customer_email\": \"aszaychik@gmail.com\"\n            }\n        }\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/orders/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"orders",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:59:39 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Order not found\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Order",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": {{id}},\r\n    \"seat_number\": {{number}},\r\n    \"items\": [{\"item_id\": 1,\"quantity\": 5},{\"item_id\": 2,\"quantity\": 3},{\"item_id\": 3,\"quantity\": 2}]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_id\": 1,\r\n    \"seat_number\": 1,\r\n    \"items\": [{\"item_id\": 1,\"quantity\": 5},{\"item_id\": 2,\"quantity\": 3},{\"item_id\": 3,\"quantity\": 2}]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/orders",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:48:33 GMT"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Success to create order\",\n    \"data\": {\n        \"id\": 8,\n        \"customer_id\": 1,\n        \"seat_number\": 1,\n        \"wifi_access_url\": \"\",\n        \"total_price\": 55000,\n        \"order_status\": \"pending\",\n        \"order_date\": \"2023-10-30T07:48:34Z\",\n        \"customer\": {\n            \"id\": 1,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"aszaychik@gmail.com\"\n        },\n        \"items\": [\n            {\n                \"id\": 22,\n                \"order_id\": 8,\n                \"item_id\": 1,\n                \"quantity\": 5,\n                \"item\": {\n                    \"id\": 1,\n                    \"item_name\": \"Ice Tea\",\n                    \"item_price\": 4000,\n                    \"item_description\": \"Minuman teh dingin yang menyegarkan dengan es batu.\",\n                    \"item_image\": \"https://smartcafebucket.s3.ap-southeast-1.amazonaws.com/menu/images/2023-10-30%2006%3A37%3A29.885865085%20%2B0000%20UTC%20m%3D%2B73.470448659-ptilopsis.png\",\n                    \"category_id\": 1,\n                    \"category\": {\n                        \"id\": 1,\n                        \"category_name\": \"Tea\",\n                        \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n                    }\n                }\n            },\n            {\n                \"id\": 23,\n                \"order_id\": 8,\n                \"item_id\": 2,\n                \"quantity\": 3,\n                \"item\": {\n                    \"id\": 2,\n                    \"item_name\": \"Milk Tea\",\n                    \"item_price\": 5000,\n                    \"item_description\": \"Minuman teh dengan tambahan susu, memberikan rasa yang lezat dan creamy.\",\n                    \"item_image\": \"https://placewaifu.com/image/200\",\n                    \"category_id\": 1,\n                    \"category\": {\n                        \"id\": 1,\n                        \"category_name\": \"Tea\",\n                        \"category_description\": \"Teh adalah minuman tradisional yang dibuat dari daun teh kering yang direbus dengan air panas. Minuman ini dikenal dengan berbagai varian seperti teh hijau, teh hitam, dan teh herbal. Teh memiliki beragam rasa dan aroma yang menenangkan.\"\n                    }\n                }\n            },\n            {\n                \"id\": 24,\n                \"order_id\": 8,\n                \"item_id\": 3,\n                \"quantity\": 2,\n                \"item\": {\n                    \"id\": 3,\n                    \"item_name\": \"Americano\",\n                    \"item_price\": 10000,\n                    \"item_description\": \"Kopi pahit kesukaan mas fathir\",\n                    \"item_image\": \"https://placewaifu.com/image/200\",\n                    \"category_id\": 2,\n                    \"category\": {\n                        \"id\": 2,\n                        \"category_name\": \"Coffee\",\n                        \"category_description\": \"Kopi adalah minuman hasil seduhan biji kopi yang telah digiling menjadi bubuk. Minuman ini memiliki cita rasa pahit dan aroma yang khas, sering disajikan panas dan dapat diolah menjadi berbagai variasi seperti espresso, cappuccino, dan latte.\"\n                    }\n                }\n            }\n        ],\n        \"payment\": {\n            \"id\": \"ORDER-1-08d5da1e-3557-4f83-a514-e556e5583d54\",\n            \"order_id\": 8,\n            \"payment_method\": \"\",\n            \"payment_status\": \"pending\",\n            \"payment_date\": \"2023-10-30T07:48:34Z\",\n            \"payment_url\": \"https://app.sandbox.midtrans.com/snap/v3/redirection/b287b9f6-9fb3-47ba-8caf-76d3bd195423\"\n        },\n        \"review\": {\n            \"id\": 0,\n            \"order_id\": 0,\n            \"customer_id\": 0,\n            \"feedback_text\": \"\",\n            \"feedback_rating\": 0,\n            \"feedback_date\": \"0001-01-01T00:00:00Z\",\n            \"customer\": {\n                \"id\": 0,\n                \"customer_name\": \"\",\n                \"customer_email\": \"\"\n            }\n        }\n    }\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"seat_number\": {{number}},\r\n    \"items\": [{\"item_id\": 1,\"quantity\": 2},{\"item_id\": 2,\"quantity\": 3},{\"item_id\": 3,\"quantity\": 2}]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/orders",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"orders"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 06:54:30 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field CustomerId, tag required\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Feedbacks",
+			"item": [
+				{
+					"name": "Create Feedback",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customer_id\": {{id}},\r\n    \"order_id\": 8,\r\n    \"feedback_text\": \"test\",\r\n    \"feedback_rating\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/feedbacks",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"feedbacks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Created",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customer_id\": 1,\r\n    \"order_id\": 8,\r\n    \"feedback_text\": \"test\",\r\n    \"feedback_rating\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/feedbacks",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"feedbacks"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:56:00 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "267"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 201,\n    \"message\": \"Success to create feedback\",\n    \"data\": {\n        \"id\": 4,\n        \"order_id\": 8,\n        \"customer_id\": 1,\n        \"feedback_text\": \"test\",\n        \"feedback_rating\": 10,\n        \"feedback_date\": \"2023-10-30T07:56:00Z\",\n        \"customer\": {\n            \"id\": 1,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"aszaychik@gmail.com\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_id\": 8,\r\n    \"feedback_text\": \"test\",\r\n    \"feedback_rating\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/feedbacks",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"feedbacks"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:51:24 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "107"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 400,\n    \"message\": \"Validation failed: Validation error on field CustomerId, tag required\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Feedback",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/feedbacks",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"feedbacks"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/feedbacks",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"feedbacks"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:56:35 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "475"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get feedbacks\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"order_id\": 8,\n            \"customer_id\": 1,\n            \"feedback_text\": \"test\",\n            \"feedback_rating\": 10,\n            \"feedback_date\": \"2023-10-30T07:56:00Z\",\n            \"customer\": {\n                \"id\": 1,\n                \"customer_name\": \"aszaychik\",\n                \"customer_email\": \"aszaychik@gmail.com\"\n            }\n        },\n        {\n            \"id\": 5,\n            \"order_id\": 6,\n            \"customer_id\": 1,\n            \"feedback_text\": \"test\",\n            \"feedback_rating\": 10,\n            \"feedback_date\": \"2023-10-30T07:56:27Z\",\n            \"customer\": {\n                \"id\": 1,\n                \"customer_name\": \"aszaychik\",\n                \"customer_email\": \"aszaychik@gmail.com\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Feedback by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/feedbacks/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"feedbacks",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/feedbacks/4",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"feedbacks",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:57:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "264"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to get feedback\",\n    \"data\": {\n        \"id\": 4,\n        \"order_id\": 8,\n        \"customer_id\": 1,\n        \"feedback_text\": \"test\",\n        \"feedback_rating\": 10,\n        \"feedback_date\": \"2023-10-30T07:56:00Z\",\n        \"customer\": {\n            \"id\": 1,\n            \"customer_name\": \"aszaychik\",\n            \"customer_email\": \"aszaychik@gmail.com\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/feedbacks/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"feedbacks",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:57:01 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Feedback not found\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Feedback by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"feedback_text\": \"update test\",\r\n    \"feedback_rating\": 10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/feedbacks/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"feedbacks",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"feedback_text\": \"update test\",\r\n    \"feedback_rating\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/feedbacks/4",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"feedbacks",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:58:03 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to update feedback\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"feedback_text\": \"update test\",\r\n    \"feedback_rating\": 10\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/feedbacks/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"feedbacks",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:57:38 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Feedback not found\",\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Feedback by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/feedbacks/4",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"feedbacks",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/feedbacks/5",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"feedbacks",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:58:45 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "64"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"Success to delete feedback\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/feedbacks/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"feedbacks",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:58:21 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 404,\n    \"message\": \"Feedback not found\",\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Admins",
+			"item": [
+				{
+					"name": "Get All Admins",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/admins",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"admins"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://aszychik.my.id:8080/admins",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"admins"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to get admins\",\r\n    \"data\": [\r\n        {\r\n            \"ID\": 1,\r\n            \"CreatedAt\": \"2023-10-29T15:38:23.421Z\",\r\n            \"UpdatedAt\": \"2023-10-29T15:38:23.421Z\",\r\n            \"DeletedAt\": null,\r\n            \"username\": \"admin\",\r\n            \"password\": \"$2a$10$wZ96FFL2OmqamdDgoNGwhOlmKMEvwSuiARuE36lsH6C9CEk1dRp2G\"\r\n        },\r\n        {\r\n            \"ID\": 2,\r\n            \"CreatedAt\": \"2023-10-30T05:21:24.049Z\",\r\n            \"UpdatedAt\": \"2023-10-30T05:21:24.049Z\",\r\n            \"DeletedAt\": null,\r\n            \"username\": \"admin2\",\r\n            \"password\": \"$2a$10$GU3v8WEWzLvipLACkANU/.dLPJKapFfcw2UAbOebZiF9ronLnQf4e\"\r\n        }\r\n    ]\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Admin by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"admins",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://aszychik.my.id:8080/admins/1",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"admins",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to get admin\",\r\n    \"data\": {\r\n        \"ID\": 1,\r\n        \"CreatedAt\": \"2023-10-29T15:38:23.421Z\",\r\n        \"UpdatedAt\": \"2023-10-29T15:38:23.421Z\",\r\n        \"DeletedAt\": null,\r\n        \"username\": \"admin\",\r\n        \"password\": \"$2a$10$wZ96FFL2OmqamdDgoNGwhOlmKMEvwSuiARuE36lsH6C9CEk1dRp2G\"\r\n    }\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"missing or malformed jwt\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Admin by ID",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/admins/404",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"admins",
+								"404"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"password\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/admins/1",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"admins",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to update admin\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"404"
 									]
 								}
 							},
@@ -2656,7 +4229,375 @@
 								}
 							],
 							"cookie": [],
-							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Invalid username or password\"\r\n}"
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Admin not found\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Validation Failed",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 400,\r\n    \"message\": \"Validation failed: Validation error on field Password, tag min\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"{{username}}\",\r\n    \"password\": \"{{password}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Admin by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"admins",
+								"{{id}}"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://aszychik.my.id:8080/admins/2",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"admins",
+										"2"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 200,\r\n    \"message\": \"Success to delete admin\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/404",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"404"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"code\": 404,\r\n    \"message\": \"Admin not found\",\r\n    \"data\": null\r\n}"
+						},
+						{
+							"name": "Token Missing",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}:{{port}}/admins/{{id}}",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"admins",
+										"{{id}}"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\r\n    \"message\": \"missing or malformed jwt\"\r\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Payment",
+			"item": [
+				{
+					"name": "Send Notifications",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"va_numbers\": [\r\n    {\r\n      \"va_number\": \"66062877723\",\r\n      \"bank\": \"bca\"\r\n    }\r\n  ],\r\n  \"transaction_time\": \"2023-10-30 14:15:53\",\r\n  \"transaction_status\": \"settlement\",\r\n  \"transaction_id\": \"abf830fa-3c17-4223-a20e-4573d245caf3\",\r\n  \"status_message\": \"midtrans payment notification\",\r\n  \"status_code\": \"200\",\r\n  \"signature_key\": \"06f16c551a0dbfba4f8bb39cac9bcc1a104eaae1d20dc8b2896c27a34542f5601c208335b05332db18b1fc7f3ebefffee8c107d6d7562b8358d88b794e539368\",\r\n  \"settlement_time\": \"2023-10-30 14:15:59\",\r\n  \"payment_type\": \"bank_transfer\",\r\n  \"payment_amounts\": [\r\n\r\n  ],\r\n  \"order_id\": \"ORDER-1-372c1bf5-5350-43b4-b24c-9ae5fdd20f7a\",\r\n  \"merchant_id\": \"G217166062\",\r\n  \"gross_amount\": \"43000.00\",\r\n  \"fraud_status\": \"accept\",\r\n  \"expiry_time\": \"2023-10-31 14:15:53\",\r\n  \"currency\": \"IDR\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}:{{port}}/orders/notifications",
+							"host": [
+								"{{base_url}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"orders",
+								"notifications"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"va_numbers\": [\r\n    {\r\n      \"va_number\": \"66062877723\",\r\n      \"bank\": \"bca\"\r\n    }\r\n  ],\r\n  \"transaction_time\": \"2023-10-30 14:15:53\",\r\n  \"transaction_status\": \"settlement\",\r\n  \"transaction_id\": \"abf830fa-3c17-4223-a20e-4573d245caf3\",\r\n  \"status_message\": \"midtrans payment notification\",\r\n  \"status_code\": \"200\",\r\n  \"signature_key\": \"06f16c551a0dbfba4f8bb39cac9bcc1a104eaae1d20dc8b2896c27a34542f5601c208335b05332db18b1fc7f3ebefffee8c107d6d7562b8358d88b794e539368\",\r\n  \"settlement_time\": \"2023-10-30 14:15:59\",\r\n  \"payment_type\": \"bank_transfer\",\r\n  \"payment_amounts\": [\r\n\r\n  ],\r\n  \"order_id\": \"ORDER-1-372c1bf5-5350-43b4-b24c-9ae5fdd20f7a\",\r\n  \"merchant_id\": \"G217166062\",\r\n  \"gross_amount\": \"43000.00\",\r\n  \"fraud_status\": \"accept\",\r\n  \"expiry_time\": \"2023-10-31 14:15:53\",\r\n  \"currency\": \"IDR\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://aszychik.my.id:8080/orders/notifications",
+									"protocol": "http",
+									"host": [
+										"aszychik",
+										"my",
+										"id"
+									],
+									"port": "8080",
+									"path": [
+										"orders",
+										"notifications"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 08:00:50 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "40"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 200,\n    \"message\": \"OK\",\n    \"data\": null\n}"
+						},
+						{
+							"name": "Invalid",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"transaction_event_id\": \"071560f2-37f6-359e-ad4a-4f464868f5af\",\r\n  \"source_dc\": \"MARS\",\r\n  \"order_id\": \"ORDER-1-bc5d8424-0ba4-415b-a794-318bc57294e9\",\r\n  \"merchant_id\": \"G217166062\",\r\n  \"merchant_email\": \"aszaychik@gmail.com\",\r\n  \"endpoint\": \"https://5c1a-13-229-135-119.ngrok-free.app/orders/notifications\",\r\n  \"content_type\": \"application/json\",\r\n  \"body\": {\r\n    \"va_numbers\": [\r\n      {\r\n        \"va_number\": \"66062773706\",\r\n        \"bank\": \"bca\"\r\n      }\r\n    ],\r\n    \"transaction_time\": \"2023-10-30 14:33:25\",\r\n    \"transaction_status\": \"settlement\",\r\n    \"transaction_id\": \"bdcf5180-f768-4ac1-8ff0-2f838d08a297\",\r\n    \"status_message\": \"midtrans payment notification\",\r\n    \"status_code\": \"200\",\r\n    \"signature_key\": \"0263c4d455e26a5da9d24993d5c0f8bb273aec8bfcf8229a6a36052f17cd10d1966fc3e5a9e5becde1741a404b0a88e98785a753d79b0afea050c4785e68fcee\",\r\n    \"settlement_time\": \"2023-10-30 14:33:33\",\r\n    \"payment_type\": \"bank_transfer\",\r\n    \"payment_amounts\": [],\r\n    \"order_id\": \"ORDER-1-bc5d8424-0ba4-415b-a794-318bc57294e9\",\r\n    \"merchant_id\": \"G217166062\",\r\n    \"gross_amount\": \"43000.00\",\r\n    \"fraud_status\": \"accept\",\r\n    \"expiry_time\": \"2023-10-31 14:33:25\",\r\n    \"currency\": \"IDR\"\r\n  }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}:{{port}}/orders/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"port": "{{port}}",
+									"path": [
+										"orders",
+										"notifications"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=UTF-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Origin"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 30 Oct 2023 07:34:32 GMT"
+								},
+								{
+									"key": "Content-Length",
+									"value": "66"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": 500,\n    \"message\": \"invalid notification payload\",\n    \"data\": null\n}"
 						}
 					]
 				}
