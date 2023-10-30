@@ -7,6 +7,9 @@ WORKDIR /app
 # Copy the necessary files into the container
 COPY . .
 
+# Create a directory for uploads
+RUN mkdir /app/uploads
+
 # Build the Go application
 RUN make build
 
