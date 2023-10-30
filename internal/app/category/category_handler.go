@@ -61,6 +61,10 @@ func (handler *CategoryHandlerImpl) UpdateCategoryHandler(ctx echo.Context) erro
 			return res.StatusBadRequest(ctx, err)
 		}
 
+		if strings.Contains(err.Error(), "already exists") {
+			return res.StatusAlreadyExist(ctx, err)
+		}
+		
 		if strings.Contains(err.Error(), "not found") {
 			return res.StatusNotFound(ctx, err)
 		}
