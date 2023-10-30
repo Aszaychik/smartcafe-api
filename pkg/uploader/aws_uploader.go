@@ -44,7 +44,7 @@ func (awsUp *AWSUploaderImpl) UploadFile(fileName, folderName string) (*manager.
 	})
 
 	if err != nil {
-		return nil, fmt.Errorf("failed upload qr: %w", err)
+		return nil, fmt.Errorf("failed upload : %w", err)
 	}
 
 	fmt.Println(result.Location)

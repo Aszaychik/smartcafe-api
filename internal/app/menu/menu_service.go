@@ -111,7 +111,7 @@ func (service *MenuServiceImpl) UpdateImageMenu(ctx echo.Context, fileHeader *mu
 	defer file.Close()
 
 	// Generate a unique filename using the current timestamp
-	fileName := fmt.Sprintf("%s-%d.png", strings.ReplaceAll(fileHeader.Filename, " ", "-"), time.Now().Unix())
+	fileName := fmt.Sprintf("%s-%s", time.Now(), strings.ReplaceAll(fileHeader.Filename, " ", "-"))
 
 	// Create a new file on the server
 	localFilePath := fmt.Sprintf("uploads/%s", fileName)
