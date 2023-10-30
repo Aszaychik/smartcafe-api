@@ -14,6 +14,7 @@ import (
 	"aszaychik/smartcafe-api/pkg/barcode"
 	"aszaychik/smartcafe-api/pkg/midtrans"
 	"aszaychik/smartcafe-api/pkg/uploader"
+	"aszaychik/smartcafe-api/web"
 	"context"
 	"net/http"
 	"os"
@@ -56,6 +57,16 @@ func main() {
 
 	// Create an Echo instance
 	e := echo.New()
+
+	// Serve static HTML file for the root path
+	e.GET("/", func(c echo.Context) error {
+		file, err := web.Content.ReadFile("index.html")
+		if err != nil {
+			return c.String(http.StatusInternalServerError, "Error reading HTML file")
+		}
+		return c.HTMLBlob(http.StatusOK, file)
+	})
+
 
 	// Set up handler
 	// Admin
