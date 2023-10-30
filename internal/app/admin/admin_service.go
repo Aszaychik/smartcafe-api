@@ -92,7 +92,7 @@ func (service *AdminServiceImpl) UpdateAdmin(ctx echo.Context, request web.Admin
 	}
 
 	existingAdminUsername, _ := service.AdminRepository.FindByUsername(request.Username)
-	if existingAdminUsername != nil {
+	if existingAdminUsername != nil && int(existingAdminUsername.ID) != id  {
 		return nil, fmt.Errorf("Username already exists")
 	}
 

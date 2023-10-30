@@ -64,7 +64,7 @@ func (service *CustomerServiceImpl) UpdateCustomer(ctx echo.Context, request web
 	}
 
 	existingCustomerEmail, _ := service.CustomerRepository.FindByEmail(request.CustomerEmail)
-	if existingCustomerEmail != nil {
+	if existingCustomerEmail != nil && int(existingCustomerEmail.ID) != id {
 		return nil, fmt.Errorf("Customer Email already exists")
 	}
 

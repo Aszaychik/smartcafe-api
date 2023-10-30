@@ -67,7 +67,7 @@ func (service *CategoryServiceImpl) UpdateCategory(ctx echo.Context, request web
 	}
 
 	existingCategoryName, _ := service.CategoryRepository.FindByName(request.CategoryName)
-	if existingCategoryName != nil {
+	if existingCategoryName != nil && int(existingCategoryName.ID) != id {
 		return nil, fmt.Errorf("Category Name already exists")
 	}
 

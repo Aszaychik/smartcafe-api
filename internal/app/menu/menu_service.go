@@ -76,7 +76,7 @@ func (service *MenuServiceImpl) UpdateMenu(ctx echo.Context, request web.MenuUpd
 	}
 
 	existingMenuName, _ := service.MenuRepository.FindByName(request.ItemName)
-	if existingMenuName != nil {
+	if existingMenuName != nil && int(existingMenuName.ID) != id  {
 		return nil, fmt.Errorf("Menu Name already exists")
 	}
 
