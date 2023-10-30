@@ -43,7 +43,7 @@ func (repository *OrderRepositoryImpl) FindById(orderId int) (*domain.Order, err
 }
 
 func (repository *OrderRepositoryImpl) UpdateOrderStatus(orderPayment domain.PaymentStatus) error {
-	result := repository.DB.Table("Orders").Where("ID = ?", orderPayment.OrderID).Update("order_status", orderPayment.PaymentStatus)
+	result := repository.DB.Table("orders").Where("ID = ?", orderPayment.OrderID).Update("order_status", orderPayment.PaymentStatus)
 	if result.Error != nil {
 		return result.Error
 	}
