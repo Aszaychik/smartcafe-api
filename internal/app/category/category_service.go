@@ -54,12 +54,6 @@ func (service *CategoryServiceImpl) CreateCategory(ctx echo.Context, request web
 }
 
 func (service *CategoryServiceImpl) UpdateCategory(ctx echo.Context, request web.CategoryUpdateRequest, id int) (*domain.Category, error) {
-	// Check if the request is valid
-	err := service.Validate.Struct(request)
-	if err != nil {
-		return nil, validation.ValidationError(ctx, err)
-	}
-
 	// Check if the category exists
 	existingCategoryId, _ := service.CategoryRepository.FindById(id)
 	if existingCategoryId == nil {
